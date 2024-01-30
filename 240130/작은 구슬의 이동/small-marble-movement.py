@@ -10,7 +10,7 @@ dire = {'L': 0, 'R': 3, 'U': 2, 'D': 1}
 move_num = dire[d]
 
 def in_range(x, y):
-    return x >= 1 and x < n and y >= 1 and y < n
+    return x >= 1 and x <= n and y >= 1 and y <= n
 
 x, y = r, c
 
