@@ -48,6 +48,4 @@ while in_range(x, y):
     y += dy[dir_num]
     dir_num = (dir_num + 2) % 4
     t += 1
-    if t == 10:
-        break
 print(t)
