@@ -37,7 +37,7 @@ t = 0
 dir_num, (x, y) = set_k(k)
 
 while in_range(x, y):
-    print(f'x = {x}, y = {y}, dir_num = {dir_num}')
+    # print(f'x = {x}, y = {y}, dir_num = {dir_num}')
     mirror = a[x][y]
 
     if mirror == '/':
