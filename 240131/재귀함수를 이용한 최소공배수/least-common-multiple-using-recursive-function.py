@@ -1,14 +1,14 @@
 n = int(input())
 a = list(map(int, input().split()))
 
-MAX = 1
+limit = 1
 for i in a:
-    MAX *= i
+    limit *= i
 
 def go(num):
-    if num == MAX:
-        print(MAX)
-        return MAX
+    if num == limit:
+        print(limit)
+        return limit
 
     baesu = True
     for i in a:
@@ -19,6 +19,7 @@ def go(num):
         print(num)
         return num
     else:
-        go(num + 1)
+        go(num + MAX)
 
+MAX = max(a)
 go(max(a))
