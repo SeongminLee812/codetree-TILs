@@ -19,31 +19,19 @@ dy = [1, 0, -1, 0]
 dir_num = 0
 
 x, y = 0, 0
+a[0][0] = 1
 
 now = 0
-while True:
-    now += 1
-    a[x][y] = now 
+for i in range(2, n * m + 1):
     nx = x + dx[dir_num]
     ny = y + dy[dir_num]
+
     if not in_range(nx, ny) or a[nx][ny] != 0:
         dir_num = (dir_num + 1) % 4
 
-        nx = x + dx[dir_num]
-        ny = y + dy[dir_num]
-
-    if not in_range(nx, ny) or a[nx][ny] != 0:
-        break
-    
-    x = nx
-    y = ny
+    x = x + dx[dir_num]
+    y = y + dy[dir_num]
+    a[x][y] = i
 
 for line in a:
     print(' '.join(map(str, line)))
-
-
-        
-
-# 순서가 어떻게?
-## 현재 자기 자신 += 1 -> 방향대로 이동 가능한지 확인 -> 이동불가능하면 방향 전환
-## 방향 전환 후 다시 이동 가능한 지 확인: 이동 불가능하면 종료, 이동가능하면 이동
