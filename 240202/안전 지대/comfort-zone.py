@@ -47,10 +47,14 @@ max_k = 0
 for line in a:
     max_k = max(max_k, max(line))
 
+min_k = 101
+for line in a:
+    min_k = min(min_k, min(line))
+min_k = max(min_k - 1, 1)
 
 ans_cnt, ans_k = 0, 1
 
-for k in range(1, max_k + 1):
+for k in range(min_k, max_k + 1):
     curr_a = copy.deepcopy(a)
     for i in range(n):
         for j in range(m):
