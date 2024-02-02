@@ -47,7 +47,7 @@ max_k = 0
 for line in a:
     max_k = max(max_k, max(line))
 
-ans_cnt, ans_k = 0, 0
+ans_cnt, ans_k = 0, 1
 
 for k in range(1, max_k + 1):
     curr_a = copy.deepcopy(a)
@@ -64,4 +64,4 @@ for k in range(1, max_k + 1):
         ans_cnt = cnt
         ans_k = k
 
-print(ans_cnt, ans_k)
+print(ans_k, ans_cnt)
