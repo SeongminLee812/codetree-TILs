@@ -1,4 +1,6 @@
 import copy
+import sys
+sys.setrecursionlimit(10000)
 
 # input
 n, m = map(int, input().split())
@@ -7,7 +9,6 @@ visited = [[False] * m for _ in range(n)]
 
 def in_range(x, y):
     return x >= 0 and x < n and y >= 0 and y < m
-
 
 def can_go(x, y):
     if not in_range(x, y):
@@ -32,7 +33,6 @@ def dfs(x, y):
             visited[nx][ny] = True
             dfs(nx, ny)
 
-
 def search(matrix):
     adjacency_cnt = 0
     for i in range(n):
@@ -46,6 +46,7 @@ def search(matrix):
 max_k = 0
 for line in a:
     max_k = max(max_k, max(line))
+
 
 ans_cnt, ans_k = 0, 1
 
