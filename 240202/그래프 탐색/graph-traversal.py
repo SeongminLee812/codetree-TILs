@@ -1,13 +1,13 @@
 n, m = map(int, input().split())
 
-graph = [[] for _ in range(n)]
+graph = [[] for _ in range(n + 1)]
 for _ in range(m):
     a, b, = map(int, input().split())
-    graph[a - 1].append(b - 1)
-    graph[b - 1].append(a - 1)
+    graph[a].append(b)
+    graph[b].append(a)
 
-visited = [False] * n
-visited[0] = True
+visited = [False] * (n + 1)
+visited[1] = True
 
 def dfs(v):
     global ans
@@ -19,5 +19,5 @@ def dfs(v):
 
 ans = 0
 
-dfs(0)
+dfs(1)
 print(ans)
