@@ -66,7 +66,6 @@ for stones in rm_candidate:
         ## 돌 치우기
         matrix = remove_stone(matrix, stone_x, stone_y)
 
-    print(matrix)
     # 전체 배열 순회하면서
     for i in range(n):
         for j in range(n):
