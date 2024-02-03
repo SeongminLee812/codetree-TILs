@@ -53,7 +53,6 @@ for _ in range(k):
     max_pos = []
     visited = [[False] * n for _ in range(n)]
     x, y = q[0]
-    print(f'{_ + 1} init : \tx={x} y={y}')
     visited[x][y] = True
     value = a[x][y]
     bfs(value)
