@@ -36,10 +36,10 @@ t = 0
 final_round = False
 
 next = (0, 0)
+visited = [[False] * m for _ in range(n)]
 while not final_round:
     t += 1
     q = deque()
-    visited = [[False] * m for _ in range(n)]
     q.append(next)
     now_ice_num, next = bfs()
     if now_ice_num != 0:
