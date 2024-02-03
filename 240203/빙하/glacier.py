@@ -12,6 +12,7 @@ def bfs():
     dys = [0, 0, -1, 1]
 
     ice_num = 0
+    next = 0, 0
 
     while q:
         x, y = q.popleft()
@@ -22,24 +23,25 @@ def bfs():
                     visited[nx][ny] = True
                     ice_num += 1
                     a[nx][ny] = 0 # 녹이기
+                    next = nx, ny
                 else:
                     visited[nx][ny] = True
                     q.append((nx, ny))
 
-    return ice_num
+    return ice_num, next
 
 last_ice_num = 0
 t = 0
 
 final_round = False
 
-start = (0, 0)
+next = (0, 0)
 while not final_round:
     t += 1
     q = deque()
     visited = [[False] * m for _ in range(n)]
-    q.append(start)
-    now_ice_num = bfs()
+    q.append(next)
+    now_ice_num, next = bfs()
     if now_ice_num != 0:
         last_ice_num = now_ice_num
     else:
