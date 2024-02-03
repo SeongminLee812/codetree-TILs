@@ -33,29 +33,18 @@ t = 0
 
 final_round = False
 
+start = (0, 0)
 while not final_round:
     t += 1
     q = deque()
     visited = [[False] * m for _ in range(n)]
-    for i in range(n):
-        if i == 0 or i == n - 1:
-            for j in range(m):
-                if not visited[i][j]:
-                    q.append((i, j))
-                    now_ice_num = bfs()
-                    if now_ice_num != 0:
-                        last_ice_num = now_ice_num
-                    else:
-                        final_round = True
+    q.append(start)
+    now_ice_num = bfs()
+    if now_ice_num != 0:
+        last_ice_num = now_ice_num
+    else:
+        final_round = True
 
-        else:
-            for j in [0, m - 1]:
-                if not visited[i][j]:
-                    q.append((i, j))
-                    now_ice_num = bfs()
-                    if now_ice_num != 0:
-                        last_ice_num = now_ice_num
-                    else:
-                        final_round = False
+
 
 print(t - 1, last_ice_num)
