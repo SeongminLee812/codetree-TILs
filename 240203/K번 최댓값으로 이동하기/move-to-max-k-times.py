@@ -1,4 +1,5 @@
 from collections import deque
+import heapq
 
 # get input
 n, k = map(int, input().split())
@@ -20,6 +21,7 @@ def can_go(x, y, value):
 def bfs(value):
     global q, visited
     global max_val, max_pos
+    hq = []
 
     dxs = [-1, 1, 0, 0]
     dys = [0, 0, -1, 1]
@@ -33,12 +35,13 @@ def bfs(value):
             if can_go(nx, ny, value):
                 visited[nx][ny] = True
                 q.append((nx, ny))
-                max_val = max(max_val, a[nx][ny]) # max_val 초기값이 0이므로 첫 탐색시 무조건 max pos에 입력되는 것을 방지
-
-    for i in range(n):
-        for j in range(n):
-            if visited[i][j] and a[i][j] == max_val:
-                max_pos.append((i, j))
+                if a[nx][ny] >= max_val:
+                    max_val = a[nx][ny]
+                    heapq.heappush(hq, (-a[nx][ny], nx, ny))
+    if hq:
+        return heapq.heappop(hq)
+    else:
+        return None
 
 
 ans = (r - 1, c - 1)
@@ -54,11 +57,10 @@ for _ in range(k):
     visited[x][y] = True
     q.append((x, y))
     value = a[x][y]
-    bfs(value)
-    if not max_pos:
+    hq = bfs(value)
+    if not hq:
         break
-    max_pos.sort(key=lambda temp: (temp[0], temp[1])) # 정렬하여 우선순위 도출
-    x, y = max_pos[0]
-    ans = max_pos[0]
+    val, x, y = hq
+    ans = x, y
 
 print(ans[0] + 1, ans[1] + 1)
