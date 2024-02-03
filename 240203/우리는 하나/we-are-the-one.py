@@ -25,6 +25,7 @@ def bfs():
 
     while q:
         x, y = q.popleft()
+        # print(f'x={x} y={y}')
         for dx, dy in zip(dxs, dys):
             nx, ny = x + dx, y + dy
             if in_range(nx, ny):
@@ -36,15 +37,19 @@ def bfs():
 
 max_go_city = 0
 
-for start in all_start:
+for iter, start in enumerate(all_start):
     # 모든 경우의 수 탐색
     visited = [[False] * n for _ in range(n)]
     q = deque()
     go_city = 0
+    # print('#' * 15, iter, '#' * 15)
     for i, j in start:
         # 경우의 수 내에서 좌표 탐색
+        # print(f'###### start = {i}, {j}')
         if not visited[i][j]:
+            visited[i][j] = True
             q.append((i, j))
+            go_city += 1
             bfs()
     max_go_city = max(max_go_city, go_city)
 
