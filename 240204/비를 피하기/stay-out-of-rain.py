@@ -47,8 +47,6 @@ for i in range(n):
             visited[i][j] = True
             q.append((i, j))
 
-print(q)
-
 bfs()
 
 for i in range(n):
