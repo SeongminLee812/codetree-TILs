@@ -42,10 +42,11 @@ def bfs():
             push(nx, step[x] + 1)
 
         if step[1]:
-            print(step[1])
             return
 
 q = deque()
 q.append(n)
 visited[n] = True
 bfs()
+
+print(step[1])
