@@ -34,20 +34,20 @@ def bfs():
                 visited[nx][ny] = True
                 steps[nx][ny] = steps[x][y] + 1
                 q.append((nx, ny))
-    return -1
+
+
+# 필요한 배열
+steps = [[0] * n for _ in range(n)]
+visited = [[False] * n for _ in range(n)]
 
 q = deque()
 for i in range(n):
     for j in range(n):
         if a[i][j] == 3:
+            visited[i][j] = True
             q.append((i, j))
 
-# 정답 행렬
-ans = [[0] * n for _ in range(n)]
-
-# 필요한 배열
-steps = [[0] * n for _ in range(n)]
-visited = [[False] * n for _ in range(n)]
+print(q)
 
 bfs()
 
