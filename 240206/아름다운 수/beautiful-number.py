@@ -45,7 +45,6 @@ def check(ans):
 def choose(index):
     global total, ans
     if index == n:
-        print(ans)
         if check(ans):
             total += 1
             return
