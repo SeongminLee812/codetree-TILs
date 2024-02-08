@@ -23,7 +23,7 @@ def can_go(x, y):
 def bfs():
     global visited, steps
     dxs = [-1, 1, 0, 0]
-    dys = [0, 0, -1, 0]
+    dys = [0, 0, -1, 1]
 
     while q:
         x, y = q.popleft()
@@ -39,7 +39,7 @@ for i in range(n):
     for j in range(n):
         if a[i][j] == 2:
             q.append((i, j))
-            
+
 bfs()
 
 for i in range(n):
