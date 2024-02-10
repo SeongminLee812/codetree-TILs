@@ -14,6 +14,8 @@ def check(num_array, check_dict):
     check_dict = copy.deepcopy(check_dict)
     for i in range(len(num_array)):
         check_dict[num_array[i]] -= 1
+        if check_dict[num_array[i]] < 0:
+            return False
 
     for value in check_dict.values():
         if value != 0:
