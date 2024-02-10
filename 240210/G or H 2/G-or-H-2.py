@@ -22,8 +22,9 @@ def check(people):
 
     return False
 
+
 ans = 0
-for i in range(n):
+for i in range(101):
     if placed[i]:
         for k in range(0, 101 - i): # k의 범위를 0~n - i만큼으로 정의한 후에 더해줌
             if placed[i + k]:
