@@ -20,14 +20,15 @@ def check(my_num: str, target: str, t_strike: int, t_ball: int):
 
 ans = 0
 for i in range(1, 10):
-    for j in range(1, 10):
+    for j in range(1 , 10):
         for k in range(1, 10):
-            ok = True
-            my_num = str(i) + str(j) + str(k)
-            for target, strike, ball in arr:
-                if not check(my_num, str(target), strike, ball):
-                    ok = False
-            if ok:
-                # print(my_num)
-                ans += 1
+            if i != j and j != k and i != k:
+                ok = True
+                my_num = str(i) + str(j) + str(k)
+                for target, strike, ball in arr:
+                    if not check(my_num, str(target), strike, ball):
+                        ok = False
+                if ok:
+                    # print(my_num) 
+                    ans += 1
 print(ans)
