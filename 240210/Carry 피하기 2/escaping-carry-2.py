@@ -1,21 +1,20 @@
 from typing import *
 
-def to_list(num: int) -> List[str]:
-    return list(str(num))
 
 def check(nums: List[int]) -> bool:
-    length = len(str(max(nums)))
-    f, s, t = map(to_list, nums)
-    nums = [f, s, t]
+    f, s, t = nums
+    # 1의 자리 숫자 확인
+    if f % 10 + s % 10 + t % 10 >= 10:
+        return False
+    # 10의 자리 숫자
+    if f % 100 // 10 + s % 100 // 10 + t % 100 // 10:
+        return False
+    # 100의 자리 숫자
+    if f % 1000 // 100 + s % 1000 // 100 + t % 1000 // 100:
+        return False
+    if f % 10000 // 1000 + s % 10000 // 1000 + t % 10000 // 1000:
+        return False
 
-    for i in range(3):
-        while len(nums[i]) < length:
-            nums[i] = ['0'] + nums[i]
-
-    for i in range(length):
-        if int(nums[0][i]) + int(nums[1][i]) + int(nums[2][i]) >= 10:
-            return False
-    return True
 
 n = int(input())
 arr = []
