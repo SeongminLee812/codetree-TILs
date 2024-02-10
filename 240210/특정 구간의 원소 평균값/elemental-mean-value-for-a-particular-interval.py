@@ -8,7 +8,7 @@ for i in range(n):
         share, remainder = divmod(total, j - i + 1)
         if remainder:
             continue
-        if share in arr:
+        if share in arr[i:j + 1]:
             ans += 1
 
 print(ans)
