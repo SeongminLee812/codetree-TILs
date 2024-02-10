@@ -12,6 +12,7 @@ for _ in range(n):
         placed[a] = 2
     length = max(length, a)
 
+length = max(k, length)
 placed = placed[:length + 1]
 
 ans = 0
