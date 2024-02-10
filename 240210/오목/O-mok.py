@@ -51,7 +51,6 @@ def is_win(x, y):
 
 a = [list(map(int, input().split())) for _ in range(19)]
 
-
 for i in range(19):
     for j in range(19):
         if a[i][j] != 0:
@@ -59,3 +58,6 @@ for i in range(19):
             if result:
                 print(a[i][j])
                 print(' '.join(map(str, result)))
+
+if not result:
+    print(0)
