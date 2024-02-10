@@ -19,7 +19,6 @@ for i in range(length - k + 1):
     val = 0
     for j in range(i, i + k + 1):
         val += placed[j]
-    print()
     ans = max(ans, val)
 
 print(ans)
