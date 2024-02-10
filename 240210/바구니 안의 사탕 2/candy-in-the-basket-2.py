@@ -1,6 +1,6 @@
 n, k = map(int, input().split())
 
-placed = [0] * 100
+placed = [0] * 101
 for _ in range(n):
     candies, spot = map(int, input().split())
     placed[spot] += candies
