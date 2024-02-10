@@ -4,16 +4,12 @@ from typing import *
 def check(nums: List[int]) -> bool:
     f, s, t = nums
     # 1의 자리 숫자 확인
-    if f % 10 + s % 10 + t % 10 >= 10:
-        return False
-    # 10의 자리 숫자
-    if f % 100 // 10 + s % 100 // 10 + t % 100 // 10 >= 10:
-        return False
-    # 100의 자리 숫자
-    if f % 1000 // 100 + s % 1000 // 100 + t % 1000 // 100 >= 10:
-        return False
-    if f % 10000 // 1000 + s % 10000 // 1000 + t % 10000 // 1000 >= 10:
-        return False
+    while f != 0 or s != 0 or t != 0:
+        if f % 10 + s % 10 + t % 10 >= 10:
+            return False
+        f //= 10
+        s //= 10
+        t //= 10
     return True
 
 
