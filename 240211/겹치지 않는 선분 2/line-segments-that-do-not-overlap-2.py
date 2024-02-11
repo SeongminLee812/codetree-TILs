@@ -21,6 +21,6 @@ for i in range(n):
         if not check(lines[i], lines[j]):
             ok = False
     if ok:
-        ans += a
+        ans += 1
 
 print(ans)
