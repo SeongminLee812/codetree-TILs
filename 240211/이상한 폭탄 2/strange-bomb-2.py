@@ -5,9 +5,10 @@ ans = -1
 
 for i in range(n - 1):
     for j in range(i + 1, n):
-        if i == j:
+        if j - i > k:
             continue
-        if bombs[i] == bombs[j] and j - i <= k:
-            ans = max(ans, bombs[i])
+        if bombs[i] != bombs[j]:
+            continue
+        ans = max(ans, bombs[i])
 
 print(ans)
