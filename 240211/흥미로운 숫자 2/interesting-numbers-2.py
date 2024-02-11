@@ -7,7 +7,7 @@ def check(num):
 
     while num:
         digit = num % 10
-        num // 10
+        num //= 10
         array[digit] += 1
 
     for i in range(10):
