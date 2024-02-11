@@ -14,10 +14,13 @@ def check(first, second):
 
 ans = 0
 for i in range(n):
+    ok = True
     for j in range(n):
         if i == j:
             continue
-        if check(lines[i], lines[j]):
-            ans += 1
+        if not check(lines[i], lines[j]):
+            ok = False
+    if ok:
+        ans += a
 
 print(ans)
