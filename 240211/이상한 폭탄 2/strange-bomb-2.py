@@ -4,12 +4,10 @@ bombs = [int(input()) for _ in range(n)]
 ans = -1
 
 for i in range(n):
-    if i == 0:
-        prev_index = i
-        continue
-    now_index = i
-    if now_index - prev_index <= k:
-        ans = max(ans, bombs[i])
-    prev_index = now_index
+    for j in range(n):
+        if i == j:
+            continue
+        if bombs[i] == bombs[j] and i - j <= k:
+            ans = max(ans, bombs[i])
 
 print(ans)
