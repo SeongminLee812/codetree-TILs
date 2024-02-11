@@ -31,12 +31,12 @@ for i in range(n):
     buyable_count = 0
     money = B
     for j in range(n):
-        receipt = result_p[j] + result_s[j]
-        money -= receipt
+        cost = result_p[j] + result_s[j]
+        money -= cost
         buyable_count += 1
         if money < 0:
             buyable_count -= 1
-            break
+            money += cost
     ans = max(ans, buyable_count)
     result_p[i] *= 2
 
