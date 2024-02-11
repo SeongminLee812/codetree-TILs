@@ -3,11 +3,11 @@ bombs = [int(input()) for _ in range(n)]
 
 ans = -1
 
-for i in range(n):
-    for j in range(n):
+for i in range(n - 1):
+    for j in range(i + 1, n):
         if i == j:
             continue
-        if bombs[i] == bombs[j] and i - j <= k:
+        if bombs[i] == bombs[j] and j - i <= k:
             ans = max(ans, bombs[i])
 
 print(ans)
