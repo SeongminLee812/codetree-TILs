@@ -4,7 +4,7 @@ arr = [0] + arr
 
 ans = 0
 
-for i in range(n):
+for i in range(1, n + 1):
     val = 0
     pos = i
     for _ in range(m):
