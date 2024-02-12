@@ -2,13 +2,15 @@ a, b, c = map(int, input().split())
 
 max_val = 0
 
-for i in range(0, 1001):
-    if a * i > c:
-        break
-    for j in range(0, 1001):
-        now_val = a * i + b * j
-        if now_val > c:
-            break
-        max_val = max(now_val, max_val)
+for i in range(0, c // a + 1):
+    a_val = a * i
+
+    remain = c - a_val
+
+    num_b = remain // b
+    b_val = num_b * b
+
+    now_value = a_val + b_val
+    max_val = max(now_value, max_val)
 
 print(max_val)
