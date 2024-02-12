@@ -12,8 +12,8 @@ def can_go(x, y, targets):
 
 def check(compo1, compo2):
     targets = [compo1, compo2]
-    dxs = [1, 0, 1]
-    dys = [0, 1, 1]
+    dxs = [1, 0, 1, -1]
+    dys = [0, 1, 1, 1]
 
     for i in range(3):
         for j in range(3):
