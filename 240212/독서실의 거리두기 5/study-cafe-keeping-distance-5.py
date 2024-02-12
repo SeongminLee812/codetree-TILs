@@ -29,15 +29,16 @@ for i in range(n):
             arr[i] = 1
             dist = cal_dist(arr)
             arr[i] = 0
-    if i == 0:
+    elif i == 0:
         if arr[i] == 0 and arr[i + 1] == 0:
             arr[i] = 1
             dist = cal_dist(arr)
             arr[i] = 0
-    elif arr[i] == 0 and arr[i - 1] == 0 and arr[i + 1] == 0:
-        arr[i] = 1
-        dist = cal_dist(arr)
-        arr[i] = 0
+    else:
+        if arr[i] == 0 and arr[i - 1] == 0 and arr[i + 1] == 0:
+            arr[i] = 1
+            dist = cal_dist(arr)
+            arr[i] = 0
 
     ans = max(ans, dist)
 
