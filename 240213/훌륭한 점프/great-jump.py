@@ -17,7 +17,7 @@ def is_possible(max_val):
 
     return True
 
-ans = n
+ans = n + 1
 
 for i in range(n, max(arr[0], arr[-1]) - 1, -1):
     if is_possible(i):
