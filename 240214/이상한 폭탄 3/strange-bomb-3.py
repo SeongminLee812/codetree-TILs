@@ -19,7 +19,7 @@ max_bomb_cnt = 0
 
 for num in bomb_num:
     bomb_cnt = check_bomb(num)
-    if bomb_cnt >= max_bomb_cnt:
+    if bomb_cnt > 0 and bomb_cnt >= max_bomb_cnt:
         max_bomb_cnt = bomb_cnt
         ans = num
 
