@@ -5,17 +5,11 @@ arr = list(map(int, input()))
 
 def minimun_distance():
     """가장 가까운 두 사람"""
-    min_dist = sys.maxsize
+    dist = n
     for i in range(n):
-        if arr[i] == 1:
-            prev_i = i
-            break
-    for i in range(prev_i + 1, n):
-        if arr[i] == 1:
-            dist = i - prev_i
-            min_dist = min(min_dist, dist)
-            prev_i = i
-    return min_dist
+        for j in range(i + 1, n):
+            if arr[i] == 1 and arr[j] == 1:
+                dist = min(dist, j - i)
 
 
 max_dist = 0
