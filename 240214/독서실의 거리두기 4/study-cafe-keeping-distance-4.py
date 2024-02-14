@@ -10,7 +10,7 @@ def minimun_distance():
         for j in range(i + 1, n):
             if arr[i] == 1 and arr[j] == 1:
                 dist = min(dist, j - i)
-
+    return dist
 
 max_dist = 0
 for i in range(n - 1):
