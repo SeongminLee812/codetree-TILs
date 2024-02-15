@@ -5,7 +5,7 @@ candidate = sorted(list(set(arr)))
 
 ans = 0
 for i in range(len(candidate)):
-    cnt = 1
+    cnt = 0
     prev_index = 0
     for j in range(n):
         if arr[j] == candidate[i]:
