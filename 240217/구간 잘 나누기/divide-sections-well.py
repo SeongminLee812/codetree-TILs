@@ -12,5 +12,6 @@ for limit in range(1, 100 * 100 + 1):
             prev_i = i
 
     if partition == m - 1:
+        limit = max(limit, max(arr))
         print(limit)
         break
