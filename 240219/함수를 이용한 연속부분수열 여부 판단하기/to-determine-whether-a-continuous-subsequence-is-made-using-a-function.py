@@ -7,9 +7,9 @@ def check(A_short, B):
     return True
 
 def is_continuous(A, B):
-    for j in range(len(A)):
+    for j in range(n1 - n2 + 1):
         if A[j] == B[0]:
-            if check(A[j:], B):
+            if A[j: j + n2] == B:
                 return True
     return False
 
