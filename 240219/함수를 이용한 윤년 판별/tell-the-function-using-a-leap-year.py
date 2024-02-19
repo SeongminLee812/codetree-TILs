@@ -11,4 +11,8 @@ def is_yoon(year):
     return False
 
 n = int(input())
-print(is_yoon(n))
+
+if is_yoon(n):
+    print('true')
+else:
+    print('false')
