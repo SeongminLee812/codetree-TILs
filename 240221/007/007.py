@@ -5,6 +5,5 @@ class Appointment:
         self.time = time
 
 a = tuple(input().split())
-print(a)
 ans = Appointment(*a)
 print(f'secret code : {ans.scode}\nmeeting point : {ans.place}\ntime : {ans.time}')
