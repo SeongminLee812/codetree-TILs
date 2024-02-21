@@ -1,7 +1,19 @@
-word_a = input()
-word_b = input()
+a = input()
+b = input()
 
-if sorted(list(word_a)) == sorted(list(word_b)):
+ASCII_NUM = [0] * 128
+
+for s in a:
+    ASCII_NUM[ord(s)] += 1
+
+for s in b:
+    ASCII_NUM[ord(s)] -= 1
+
+ok = True
+for i in range(len(ASCII_NUM)):
+    if ASCII_NUM[i] != 0:
+        print('No')
+        ok = False
+        break
+if ok:
     print('Yes')
-else:
-    print('No')
