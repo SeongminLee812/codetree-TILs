@@ -11,4 +11,4 @@ spies = [
     for _ in range(5)
 ]
 
-print(sorted(spies, key=lambda x: int(x.score))[0])
+print(min(spies, key=lambda x: int(x.score)))
