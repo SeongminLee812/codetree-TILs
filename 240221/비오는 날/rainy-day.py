@@ -13,10 +13,9 @@ arr = [
     for _ in range(n)
 ]
 
-min_idx = 0
-for i in range(n):
-    if arr[i].weather == 'Rain':
-        if arr[i].day < arr[min_idx].day:
-            min_idx = i
+sorted_arr = sorted(arr, key=lambda x: x.day)
 
-print(arr[min_idx])
+for w in sorted_arr:
+    if w.weather == 'Rain':
+        print(w)
+        break
