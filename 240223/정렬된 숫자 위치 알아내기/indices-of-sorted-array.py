@@ -1,19 +1,20 @@
-from collections import defaultdict
+class Number():
+    def __init__(self, number, index):
+        self.number = number
+        self.index = index
 
 n = int(input())
 arr = list(map(int, input().split()))
 
-already = defaultdict(int)
+nums = [
+    Number(val, idx)
+    for idx, val in enumerate(arr)
+]
+answer = [0] * n
 
-result = []
-for i in range(n):
-    i_rank = 1
-    for j in range(n):
-        if i == j:
-            continue
-        if arr[i] > arr[j]:
-            i_rank += 1
-    result.append(i_rank + already[arr[i]])
-    already[arr[i]] += 1
+nums.sort(key=lambda x: (x.number, x.index))
 
-print(' '.join(map(str, result)))
+for i, obj in enumerate(nums):
+    answer[obj.index] = i + 1
+
+print(' '.join(map(str, answer)))
