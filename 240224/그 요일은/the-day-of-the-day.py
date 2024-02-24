@@ -18,11 +18,9 @@ elapsed_day = end_day - start_day
 ans = 0
 if elapsed_day >= minus:
     ans = elapsed_day // 7 + 1
-elif:
-    elapsed_day < 0:
+elif elapsed_day < 0:
     ans = 0
 else:
     ans = elapsed_day // 7
-
 
 print(ans)
