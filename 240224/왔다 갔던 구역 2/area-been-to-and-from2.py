@@ -11,7 +11,7 @@ for _ in range(n):
             arr[i] += 1
         cur_pos += move_num
     else:
-        for i in range(cur_pos, cur_pos - move_num, -1):
+        for i in range(cur_pos - move_num, cur_pos):
             arr[i] += 1
         cur_pos -= move_num
 
