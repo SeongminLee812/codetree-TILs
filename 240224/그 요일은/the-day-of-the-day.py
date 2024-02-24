@@ -11,14 +11,18 @@ for i in range(len(weekdays)):
         minus = i
 
 end_day = sum([days_of_month[m] for m in range(m2)]) + d2
-start_day = sum([days_of_month[m] for m in range(m1)]) + d1
+start_day = sum([days_of_month[m] for m in range(m1)]) + d1 + minus
 
 elapsed_day = end_day - start_day
 
 ans = 0
 if elapsed_day >= minus:
     ans = elapsed_day // 7 + 1
+elif:
+    elapsed_day < 0:
+    ans = 0
 else:
     ans = elapsed_day // 7
+
 
 print(ans)
