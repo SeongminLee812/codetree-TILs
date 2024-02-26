@@ -13,28 +13,30 @@ cur_point = 100000
 for _ in range(n):
     move_count, direction = input().split()
     move_count = int(move_count)
-    move_count -= 1
 
     # r방향
     if direction == 'R':
-        b_count[cur_point] += 1
-        color[cur_point] = 'B'
-        for i in range(cur_point + 1, cur_point + move_count + 1):
-            b_count[i] += 1
-            color[i] = 'B'
-        cur_point += move_count
+        while move_count > 0:
+            b_count[cur_point] += 1
+            color[cur_point] = 'B'
+            move_count -= 1
+
+            if move_count:
+                cur_point += 1
 
     if direction == 'L':
-        w_count[cur_point] += 1
-        color[cur_point] = 'W'
-        for i in range(cur_point - 1, cur_point - move_count - 1, -1):
-            w_count[i] += 1
-            color[i] = 'W'
-        cur_point -= move_count
-#     print('\t'.join(map(str, color[MAX_INT - 5: MAX_INT + 6])), '\t', 'cur_point', cur_point)
-#
-# print('\t'.join(map(str, w_count[MAX_INT - 5: MAX_INT + 6])))
-# print('\t'.join(map(str, b_count[MAX_INT - 5: MAX_INT + 6])))
+        while move_count > 0:
+            w_count[cur_point] += 1
+            color[cur_point] = 'W'
+            move_count -= 1
+
+            if move_count:
+                cur_point -= 1
+
+    print('\t'.join(map(str, color[MAX_INT - 5: MAX_INT + 6])), '\t', 'cur_point', cur_point)
+
+print('\t'.join(map(str, w_count[MAX_INT - 5: MAX_INT + 6])))
+print('\t'.join(map(str, b_count[MAX_INT - 5: MAX_INT + 6])))
 
 
 white = 0
