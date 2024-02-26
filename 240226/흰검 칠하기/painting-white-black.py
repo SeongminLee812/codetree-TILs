@@ -8,8 +8,6 @@ n = int(input())
 
 cur_point = 100000
 
-# print('\t'.join(map(str, (i for i in range(-5, 6)))))
-# print('=\t'*11)
 for _ in range(n):
     move_count, direction = input().split()
     move_count = int(move_count)
@@ -33,10 +31,10 @@ for _ in range(n):
             if move_count:
                 cur_point -= 1
 
-    print('\t'.join(map(str, color[MAX_INT - 5: MAX_INT + 6])), '\t', 'cur_point', cur_point)
-
-print('\t'.join(map(str, w_count[MAX_INT - 5: MAX_INT + 6])))
-print('\t'.join(map(str, b_count[MAX_INT - 5: MAX_INT + 6])))
+    # print('\t'.join(map(str, color[MAX_INT - 5: MAX_INT + 6])), '\t', 'cur_point', cur_point)
+# 
+# print('\t'.join(map(str, w_count[MAX_INT - 5: MAX_INT + 6])))
+# print('\t'.join(map(str, b_count[MAX_INT - 5: MAX_INT + 6])))
 
 
 white = 0
