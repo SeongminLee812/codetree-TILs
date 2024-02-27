@@ -34,5 +34,8 @@ for row in range(MAX_INT):
             row_candidate.append(row)
             col_candidate.append(col)
 
-answer = (max(row_candidate) - min(row_candidate) + 1) * (max(col_candidate) - min(col_candidate) + 1)
+if row_candidate:
+    answer = (max(row_candidate) - min(row_candidate) + 1) * (max(col_candidate) - min(col_candidate) + 1)
+else:
+    answer = 0
 print(answer)
