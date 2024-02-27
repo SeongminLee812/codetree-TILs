@@ -4,7 +4,7 @@ arr = [
     for _ in range(n)
 ]
 
-ans = 0
+ans = 1
 
 cnt = 1
 for i in range(n):
