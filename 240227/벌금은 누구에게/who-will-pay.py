@@ -12,8 +12,7 @@ ans = -1
 for _ in range(m):
     number = int(input())
     left[number] -= 1
-    if check():
-        ans = number
+    if left[number] == 0:
         break
 
 print(ans)
