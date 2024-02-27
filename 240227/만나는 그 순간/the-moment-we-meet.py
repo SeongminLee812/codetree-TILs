@@ -1,7 +1,7 @@
-MAX_INT = 1000
+MAX_INT = 1000000
 
-a_move = [0] * 1001
-b_move = [0] * 1001
+a_move = [0] * (MAX_INT + 1)
+b_move = [0] * (MAX_INT + 1)
 
 n, m = map(int, input().split())
 
