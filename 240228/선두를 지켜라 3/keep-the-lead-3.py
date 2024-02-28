@@ -41,7 +41,7 @@ for i in range(1, current_time):
         trophy = 'AB'
 
     if prev_trophy != trophy:
-        print(prev_trophy, trophy)
+        # print(prev_trophy, trophy)
         cnt += 1
         prev_trophy = trophy
 
