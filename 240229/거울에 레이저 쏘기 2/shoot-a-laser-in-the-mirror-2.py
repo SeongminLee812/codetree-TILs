@@ -44,7 +44,6 @@ else:
 
 cnt = 0
 while in_range(x, y):
-    print(x, y, dir_num)
 
     if arr[x][y] == '/':
         if dir_num == 0:
