@@ -10,7 +10,7 @@ dys = [0, 0, -1, 1]
 def in_range(x, y):
     return x >= 0 and x < n and y >= 0 and y < n
 
-max_cnt = 0
+ans = 0
 
 for i in range(n):
     for j in range(n):
@@ -22,6 +22,7 @@ for i in range(n):
             if in_range(nx, ny) and arr[nx][ny] == 1:
                 cnt += 1
         
-        max_cnt = max(cnt, max_cnt)
+        if cnt >= 3:
+            ans += 1
 
-print(max_cnt)
+print(ans)
