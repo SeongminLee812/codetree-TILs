@@ -24,15 +24,15 @@ def move(dir_num):
     x, y = nx, ny
 
 # transform start point to coordinate
-if (start) // n <= 1:
+if (start) // n <= 0:
     dir_num = 2
     x = 0
     y = (start - 1) % n
-elif (start) // n <= 2:
+elif (start) // n <= 1:
     dir_num = 1
     x = (start - 1) % n
     y = n - 1
-elif (start) // n <= 3:
+elif (start) // n <= 2:
     dir_num = 0
     x = n - 1
     y = n - 1 - ((start - 1) % n)
@@ -44,7 +44,7 @@ else:
 
 cnt = 0
 while in_range(x, y):
-    # print(x, y, dir_num)
+    print(x, y, dir_num)
 
     if arr[x][y] == '/':
         if dir_num == 0:
