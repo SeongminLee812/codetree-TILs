@@ -16,7 +16,7 @@ dir_num = 0
 
 # check if x and y in range
 def in_range(x, y):
-    return x >= 0 and x < n and y >= 0 and y < n
+    return x >= 0 and x < n and y >= 0 and y < m
 
 for i in range(2, n * m + 1):
     nx, ny = x + dx[dir_num], y + dy[dir_num]
