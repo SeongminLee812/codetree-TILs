@@ -21,7 +21,6 @@ move_num = 1
 
 i = 2
 limit = n * n
-print(limit)
 
 turn = 0
 while i < limit:
