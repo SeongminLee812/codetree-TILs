@@ -14,8 +14,8 @@ for _ in range(n):
 
 ans = 0
 
-for i in range(max_position):
-    for j in range(1, max_position - i):
+for i in range(max_position + 1):
+    for j in range(1, max_position + 1 - i):
         g_count = 0
         h_count = 0
         district = arr[i: i + j + 1]
