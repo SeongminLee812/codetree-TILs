@@ -9,13 +9,15 @@ def search_max_dist():
     result_index = 0
     for i in range(n - 1):
         # 끝점
-        for j in range(i + 1, n):
-            if arr[i] == 1 and arr[j] == 1:
-                dist = j - i
-                if dist > result_dist:
-                    result_dist = dist
-                    result_index = i
-                break
+        if arr[i] == 1:
+            for j in range(i + 1, n):
+                if arr[j] == 1:
+                    dist = j - i
+                    if dist > result_dist:
+                        result_dist = dist
+                        result_index = i
+                    break
+
     return result_dist, result_index
 
 def search_min_dist():
@@ -24,17 +26,20 @@ def search_min_dist():
     result_index = 0
     for i in range(n - 1):
         # 끝점
-        for j in range(i + 1, n):
-            if arr[i] == 1 and arr[j] == 1:
-                dist = j - i
-                if dist < result_dist:
-                    result_dist = dist
-                    result_index = i
-                break
+        if arr[i] == 1:
+            for j in range(i + 1, n):
+                if arr[j] == 1:
+                    dist = j - i
+                    if dist < result_dist:
+                        result_dist = dist
+                        result_index = i
+                    break
     return result_dist
 
 result_dist, result_index = search_max_dist()
 
-arr[(result_index + result_dist) // 2] = 1
+insert_pos = result_index + result_dist // 2
+arr[insert_pos] = 1
+
 ans = search_min_dist()
 print(ans)
