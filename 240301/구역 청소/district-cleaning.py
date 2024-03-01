@@ -1,12 +1,14 @@
 a, b = map(int, input().split())
 c, d = map(int, input().split())
 
-MAX_INT = 100
+def intersecting():
+    if a > d or b < c:
+        return False
+    return True
 
-arr = [0] * (MAX_INT + 1)
-for i in range(a, b):
-    arr[i] = 1
-for i in range(c, d):
-    arr[i] = 1
+if intersection():
+    ans = max([b, d]) - min([a, ])
+else:
+    ans = (b - a) + (d - c)
 
-print(sum(arr))
+print(ans)
