@@ -21,9 +21,11 @@ def shortest_s(index):
     for i in range(index, 0, -1):
         if arr[i] == 'S':
             left = index - i
+            break
     for i in range(index, MAX_INT + 1):
         if arr[i] == 'S':
             right = i - index
+            break
     return min([left, right])
 
 def shortest_n(index):
@@ -33,9 +35,11 @@ def shortest_n(index):
     for i in range(index, 0, -1):
         if arr[i] == 'N':
             left = index - i
+            break
     for i in range(index, MAX_INT + 1):
         if arr[i] == 'N':
             right = i - index
+            break
     return min([left, right])
 
 special_position = 0
