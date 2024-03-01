@@ -44,8 +44,6 @@ for cheese_num in range(1, MAX_CHEESE + 1):
         if cheese_num in cheese_candidate:
             cheese_candidate.remove(cheese_num)
 
-print(cheese_candidate)
-
 ans = 0
 
 for cheese_num in cheese_candidate:
