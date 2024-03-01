@@ -2,31 +2,35 @@ import copy
 
 n, b = map(int, input().split())
 
-prices = []
-ships = []
+class Student:
+    def __init__(self, price, shipment):
+        self.price = price
+        self.shipment = shipment
+
+students = []
 
 for _ in range(n):
     p, s = map(int, input().split())
-    prices.append(p)
-    ships.append(s)
+    students.append(Student(p, s))
 
 ans = 0
 
 # n개중 하나만 반값.
 # 정렬 -> 싼 애들부터 채우면 됨
 for i in range(n):
-    now_p = copy.deepcopy(prices)
-    now_p[i] //= 2
-    remain_cost = b
-    student = 0
+    now_p = copy.deepcopy(students)
+    now_p[i].price //= 2
 
-    now_p.sort()
+    now_p.sort(key=lambda x: x.price + x.shipment)
+    remain_cost = b
+    possible = 0
+
     for j in range(n):
-        remain_cost -= now_p[j]
+        remain_cost -= now_p[j].price + now_p[j].shipment
         if remain_cost > 0:
-            student += 1
+            possible += 1
         else:
             break
-    ans = max(ans, student)
+    ans = max(ans, possible)
 
 print(ans)
