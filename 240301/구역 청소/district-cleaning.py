@@ -6,8 +6,8 @@ def intersecting():
         return False
     return True
 
-if intersection():
-    ans = max([b, d]) - min([a, ])
+if intersecting():
+    ans = max([b, d]) - min([a, c])
 else:
     ans = (b - a) + (d - c)
 
