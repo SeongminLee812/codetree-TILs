@@ -15,7 +15,7 @@ eat_time_arr = [
 sick_people = []
 
 # 치즈를 먹은 사람의 수 카운트
-cheese_cnt = defaultdict(int)
+cheese_cnt = defaultdict(set)
 
 # 아픈 사람 시간 기록 배열 / 열: 사람, 레코드: 아픈 시간
 sick_time_arr = [0] * (MAX_PEOPLE + 1)
@@ -23,7 +23,7 @@ sick_time_arr = [0] * (MAX_PEOPLE + 1)
 for _ in range(d):
     person, cheese, when = map(int, input().split())
     eat_time_arr[person][cheese] = when
-    cheese_cnt[cheese] += 1
+    cheese_cnt[cheese] = cheese_cnt[cheese].union({person})
 
 for _ in range(s):
     person, when = map(int, input().split())
@@ -47,6 +47,6 @@ for cheese_num in range(1, MAX_CHEESE + 1):
 ans = 0
 
 for cheese_num in cheese_candidate:
-    ans = max(ans, cheese_cnt[cheese_num])
+    ans = max(ans, len(cheese_cnt[cheese_num]))
 
 print(ans)
