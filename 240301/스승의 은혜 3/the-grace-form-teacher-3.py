@@ -7,6 +7,9 @@ class Student:
         self.price = price
         self.shipment = shipment
 
+    def __repr__(self):
+        return f"Student(price: {self.price}, shipment: {self.shipment})"
+
 students = []
 
 for _ in range(n):
@@ -27,7 +30,7 @@ for i in range(n):
 
     for j in range(n):
         remain_cost -= now_p[j].price + now_p[j].shipment
-        if remain_cost > 0:
+        if remain_cost >= 0:
             possible += 1
         else:
             break
