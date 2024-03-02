@@ -46,9 +46,11 @@ while q:
             # 만난 시간을 넣어줘야함
             # 시간 순서로 들어가야한다.
             q.append((time, y_dev))
+            # 이미 y도 감염된 경우에는 y의 k도 빼줌
+            if result[y_dev]:
+                k_list[y_dev] -= 1
             result[y_dev] = 1
             k_list[x_dev] -= 1
-            k_list[y_dev] -= 1
         if k_list[x_dev] == 0:
             break
 
