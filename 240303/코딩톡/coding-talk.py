@@ -6,6 +6,7 @@ can_unread =[
     for _ in range(m)
 ]
 
+
 # result array / 1: 안읽을 가능성이 있는 사람, 0: 읽어야만 하는 사람
 arr = [0] * n
 
@@ -34,21 +35,30 @@ for i in range(m):
             except:
                 pass
 
-
 for message_num in range(m):
     if message_num == 0:
         continue
     if read_people[message_num - 1] == read_people[message_num]:
+        can_unread[message_num] = can_unread[message_num - 1]
+        prev_sender = senders[message_num - 1]
+        curr_sender = senders[message_num]
         try:
-            sender = senders[message_num - 1]
             # print(f'message: {message_num}, person: {sender}')
-            can_unread[message_num].remove(sender) # 여기에 i - 1번째 메세지를 보낸 사람을 찾아서 제거
+            can_unread[message_num].remove(prev_sender) # 여기에 i - 1번째 메세지를 보낸 사람을 찾아서 제거
+        except:
+            pass
+        try:
+            can_unread[message_num].remove(curr_sender) # 원래 지워야하는 현재 sender도 다시 지움
         except:
             pass
 
 #
 # for row in can_unread:
 #     print(row)
+
+# # 디버깅용 출력
+# for idx, row in enumerate(can_unread, start=1):
+#     print(f'{idx}\t{row}\tsender: {senders[idx - 1]}\tread_people: {read_people[idx - 1]}\tMessage: {original_message[idx - 1]}')
 
 # 정답 찾기
 for person_num in can_unread[p - 1]:
