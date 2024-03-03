@@ -7,7 +7,7 @@ messages =[
     for _ in range(m)
 ]
 
-if messages[p - 1][1] == 0:
+if messages[p - 1][1] == '0':
     sys.exit()
 
 for i in range(n):
