@@ -33,7 +33,6 @@ def selection_sort():
                 arr[j], arr[j - 1] = arr[j - 1], arr[j]
                 cnt += 1
 
-                print(arr)
     return cnt
 
 ans = selection_sort()
