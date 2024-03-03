@@ -4,7 +4,6 @@ arr = list(input().split())
 
 for i in range(n):
     arr[i] = ord(arr[i]) - ord('A')
-print(arr)
 
 def is_sorted():
     for i in range(n):
