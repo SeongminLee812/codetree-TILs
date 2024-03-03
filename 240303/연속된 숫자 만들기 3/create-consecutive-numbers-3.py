@@ -13,8 +13,4 @@ if longest_term == 1:
 elif longest_term == 2:
     print(1)
 else:
-    cnt = 1
-    while longest_term > 1:
-        longest_term //= 2
-        cnt += 1
-    print(cnt)
+    print(longest_term - 1)
