@@ -65,8 +65,13 @@ else:
 # 새로운 인원 투입 전에 가장 짧은 거리가 있는 경우
 shortest_dist = 1001
 prev_idx = 0
-for i in range(1, n):
+is_first = True
+for i in range(n):
     if arr[i] == 1:
+        if is_first:
+            prev_idx = i
+            is_first=False
+            continue
         dist = i - prev_idx
         shortest_dist = min(shortest_dist, dist)
         prev_idx = i
