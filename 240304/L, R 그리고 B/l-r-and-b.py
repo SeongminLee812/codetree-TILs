@@ -25,9 +25,9 @@ if dist == 0:
     sys.exit()
 
 
-if L[0] == B[0] == R[0] and (L[0] < R[0] < B[0] or B[0] < R[0] < L[0]):
-    dist += 3
-elif L[1] == B[1] == R[1] and (L[1] < R[1] < B[1] or B[1] < R[1] < L[1]):
-    dist += 3
+if L[0] == B[0] == R[0] and (L[1] < R[1] < B[1] or B[1] < R[1] < L[1]):
+    dist += 2
+elif L[1] == B[1] == R[1] and (L[0] < R[0] < B[0] or B[0] < R[0] < L[0]):
+    dist += 2
 
 print(dist)
