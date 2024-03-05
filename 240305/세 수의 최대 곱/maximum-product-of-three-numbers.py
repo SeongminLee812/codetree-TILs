@@ -63,6 +63,6 @@ if pos_cnt <= 2 and neg_cnt <= 1 and not is_zeros_in:
     values = [i for i in pos + neg if i != MIN_INT or i != MAX_INT]
     # print(len(values))
     val = reduce(lambda x, y: x * y, values)
-    candidate(val)
+    candidate.append(val)
 
 print(max(candidate))
