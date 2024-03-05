@@ -60,9 +60,7 @@ if pos_cnt <= 0 and not is_zeros_in:
 
 # 음수1개 양수 2개
 if pos_cnt <= 2 and neg_cnt <= 1 and not is_zeros_in:
-    values = [i for i in pos + neg if i != MIN_INT or i != MAX_INT]
-    # print(len(values))
-    val = reduce(lambda x, y: x * y, values)
+    val = reduce(lambda x, y: x * y, arr)
     candidate.append(val)
 
 print(max(candidate))
