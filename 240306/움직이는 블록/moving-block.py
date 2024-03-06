@@ -38,7 +38,8 @@ for i in range(n):
     diff = max_val - min_val
     if diff == 0:
         break
-    
+
+    diff //= 2
     arr[max_idx] = max_val - diff
     arr[min_idx] = min_val + diff
     cnt += diff
