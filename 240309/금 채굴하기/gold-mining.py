@@ -44,7 +44,7 @@ def in_range(x, y):
 
 ans = 0
 
-for k in range(n):
+for k in range(n + 1):
     # k == 0인 경우 예외처리
     cost = k * k + (k + 1) * (k + 1) if k > 0 else 1
 
