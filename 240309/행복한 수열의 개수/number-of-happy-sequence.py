@@ -19,19 +19,17 @@ for col in range(n):
     num_list.append(_nums)
 
 def is_happy(_nums):
-    cnt = 1
-    if len(_nums) == 1:
-        if cnt >= m:
-            return True
+    cnt, max_cnt = 1, 1
     for i in range(1, n):
         if _nums[i - 1] == _nums[i]:
             cnt += 1
-        if _nums[i - 1] != _nums[i] or i == n - 1:
-            if cnt >= m:
-                return True
+        else:
             cnt = 1
-
-    return False
+        max_cnt = max(max_cnt, cnt)
+    if max_cnt >= m:
+        return True
+    else:
+        return False
 
 ans = 0
 
