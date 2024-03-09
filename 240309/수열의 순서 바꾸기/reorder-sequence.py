@@ -23,8 +23,6 @@ cnt = 0
 
 while not is_sorted():
     # print(arr)
-    if cnt > 10:
-        break
     key = arr[0]
     for i in range(1, sorted_start):
         arr[i - 1] = arr[i]
