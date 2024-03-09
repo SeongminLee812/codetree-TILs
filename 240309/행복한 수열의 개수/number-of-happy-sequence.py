@@ -20,6 +20,9 @@ for col in range(n):
 
 def is_happy(_nums):
     cnt = 1
+    if len(_nums) == 1:
+        if cnt >= m:
+            return True
     for i in range(1, n):
         if _nums[i - 1] == _nums[i]:
             cnt += 1
