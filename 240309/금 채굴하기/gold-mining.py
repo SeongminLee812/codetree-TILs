@@ -1,70 +1,36 @@
-n, m = map(int, input().split())
-arr = [
+# 변수 선언 및 입력
+n, m = tuple(map(int, input().split()))
+grid = [
     list(map(int, input().split()))
     for _ in range(n)
 ]
 
 
-def get_square(num_k):
-    # now_k를 1씩 늘려가며 k까지 대각선 구해나감
-    dx_dy = []
-    for now_k in range(1, num_k + 1):
-        for direction in range(4):
-            if direction == 0:
-                for j in range(0, now_k + 1):
-                    dx = -j
-                    dy = -now_k + j
-                    if (dx, dy) not in dx_dy:
-                        dx_dy.append((dx, dy))
+# 주어진 k에 대하여 마름모의 넓이를 반환합니다.
+def get_area(k):
+    return k * k + (k + 1) * (k + 1)
 
-            elif direction == 1:
-                for j in range(0, now_k + 1):
-                    dx = -j
-                    dy = now_k - j
-                    if (dx, dy) not in dx_dy:
-                        dx_dy.append((dx, dy))
 
-            elif direction == 2:
-                for j in range(0, now_k + 1):
-                    dx = j
-                    dy = -now_k + j
-                    if (dx, dy) not in dx_dy:
-                        dx_dy.append((dx, dy))
+# 주어진 k에 대하여 채굴 가능한 금의 개수를 반환합니다.
+def get_num_of_gold(row, col, k):
+    return sum([
+        grid[i][j]
+        for i in range(n)
+        for j in range(n)
+        if abs(row - i) + abs(col - j) <= k
+    ])
 
-            else:
-                for j in range(0, now_k + 1):
-                    dx = j
-                    dy = now_k - j
-                    if (dx, dy) not in dx_dy:
-                        dx_dy.append((dx, dy))
-    return dx_dy
 
-def in_range(x, y):
-    return x >= 0 and x < n and y >= 0 and y < n
+max_gold = 0
 
-ans = 0
+# 격자의 각 위치가 마름모의 중앙일 때 채굴 가능한 금의 개수를 구합니다.
+for row in range(n):
+    for col in range(n):
+        for k in range(2 * (n - 1) + 1):
+            num_of_gold = get_num_of_gold(row, col, k)
+            
+            # 손해를 보지 않으면서 채굴할 수 있는 최대 금의 개수를 저장합니다.
+            if num_of_gold * m >= get_area(k):
+                max_gold = max(max_gold, num_of_gold)
 
-for k in range(n + 1):
-    # k == 0인 경우 예외처리
-    cost = k * k + (k + 1) * (k + 1) if k > 0 else 1
-
-    # 모든 x, y에 대하여 완전 탐색
-    for x in range(n):
-        for y in range(n):
-            num_of_gold = 0
-
-            start_x, start_y = x, y
-            if arr[start_x][start_y]:
-                num_of_gold += 1
-
-            dx_dy = get_square(k)
-            for dx, dy in dx_dy:
-                nx, ny = start_x + dx, start_y + dy
-                if in_range(nx, ny) and arr[nx][ny]:
-                    num_of_gold += 1
-
-            profit = num_of_gold * m
-            if profit >= cost:
-                ans = max(ans, num_of_gold)
-
-print(ans)
+print(max_gold)
