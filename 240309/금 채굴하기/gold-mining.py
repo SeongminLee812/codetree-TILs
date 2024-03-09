@@ -64,7 +64,7 @@ for k in range(n):
                     num_of_gold += 1
 
             profit = num_of_gold * m
-            if profit > cost:
+            if profit >= cost:
                 ans = max(ans, num_of_gold)
 
 print(ans)
