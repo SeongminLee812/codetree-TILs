@@ -1,27 +1,23 @@
 x = int(input())
 
 cur_vel = 1
-cur_pos = 0
-elapsed = 0
+cur_pos = 1
+elapsed = 1
 
 def sigma(n):
     return (n * (n + 1)) // 2
 
 while True:
-    elapsed += 1
-    if cur_pos + sigma(cur_vel) < x:
-        cur_pos += cur_vel
+    if cur_pos + sigma(cur_vel) < x: # 속력에 1 더했을 때 넘지 않는다면
         cur_vel += 1
-    else:
-        cur_vel -= 1
-        elapsed -= 1
+        cur_pos += cur_vel
+        elapsed += 1
+    elif cur_pos + sigma(cur_vel) == x:
+        elapsed += cur_vel
         break
-
-while cur_vel > 1:
-    elapsed += 1
-    cur_vel -= 1
-    cur_pos += cur_vel
-
-elapsed += x - cur_pos # 속력 1 로 나머지 구간 이동
+    elif cur_pos + sigma(cur_vel) > x: # 넘으면
+        cur_vel -= 1
+        cur_pos += cur_vel
+        elapsed += 1
 
 print(elapsed)
