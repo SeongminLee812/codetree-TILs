@@ -1,29 +1,28 @@
-from collections import deque
+import sys
 
 n = int(input())
 
-segments = []
+x1_list = []
+x2_list = []
 for _ in range(n):
     x1, x2 = map(int, input().split())
-    segments.append((x1, x2))
+    x1_list.append(x1)
+    x2_list.append(x2)
 
-small_q = sorted(segments, key=lambda x: (-x[0], x[1] - x[0]))
-large_q = sorted(segments, key=lambda x: (x[1], x[1] - x[0]))
+ans = sys.maxsize
 
+for skip in range(n):
+    max_x2 = 0
+    min_x1 = sys.maxsize
 
-small_q.pop()
-list1 = []
-for i in small_q:
-    list1.append(i[0])
-    list1.append(i[1])
+    for i in range(n):
+        if i == skip:
+            continue
 
-length1 = max(list1) - min(list1)
+        max_x2 = max(max_x2, x2_list[i])
+        min_x1 = min(min_x1, x1_list[i])
 
-large_q.pop()
-list2 = []
-for i in large_q:
-    list2.append(i[0])
-    list2.append(i[1])
-length2 = max(list2) - min(list2)
+    length = max_x2 - min_x1
+    ans = min(ans, length)
 
-print(min(length1, length2))
+print(ans)
