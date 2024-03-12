@@ -9,7 +9,11 @@ for _ in range(t):
     temp = arr[2][n - 1]
 
     for i in range(n * 3 - 1, 0, -1):
-        arr[i // 3][i % 3] = arr[(i - 1) // 3][(i - 1) % 3]
+        try:
+            arr[i // n][i % n] = arr[(i - 1) // n][(i - 1) % n]
+        except:
+            print(i)
+            raise IndexError
 
     arr[0][0] = temp
 
