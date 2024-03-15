@@ -38,7 +38,7 @@ def search(end_of_array):
 def bomb():
     global end_of_array
     remove_list = search(end_of_array)
-    if not remove_list:
+    if not remove_list or end_of_array == 0:
         return False
 
     temp_array = [0] * end_of_array
