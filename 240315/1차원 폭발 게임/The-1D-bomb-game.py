@@ -6,6 +6,7 @@
 ## 모든 배열을 순회하면서 검사. 연속된 부분이 발견되면 start_idx, end_idx를 표시하며 이동
 ## 연속된 부분이 끝나고 다른 숫자가 나왔을 때, end_idx - start_idx >= m 인 경우 체크 후 제거
 ## m이상인 경우가 없는 경우 False반환 후 반복 종료
+## 한번에 터져야함...!
 
 n, m = map(int, input().split())
 arr = [
@@ -13,50 +14,54 @@ arr = [
     for _ in range(n)
 ]
 
-def search():
+def search(end_of_array):
+    # 터지는 모든 i를 다 저장할 것
     start_idx = 0
     cnt = 1
-    for i in range(n - 1):
+    result = []
+    for i in range(end_of_array):
         if arr[i] == arr[i + 1]:
             cnt += 1
         else:
             if cnt >= m:
-                return start_idx, cnt
+                for i in range(start_idx, start_idx + cnt):
+                    result.append(i)
             start_idx = i + 1
             cnt = 1
 
     if cnt >= m:
-        return start_idx, cnt
+        for i in range(start_idx, start_idx + cnt):
+            result.append(i)
 
-    return False
+    return result
 
 def bomb():
     global end_of_array
-    bomb_range = search()
-    if not bomb_range:
+    remove_list = search(end_of_array)
+    if not remove_list:
         return False
-    start_idx, cnt = bomb_range
 
     temp_array = [0] * end_of_array
 
     end_of_temp_array = 0
-    for i in range(end_of_array):
-        if i < start_idx or i >= start_idx + cnt:
+    for i in range(end_of_array + 1):
+        if i not in remove_list:
             temp_array[end_of_temp_array] = arr[i]
             end_of_temp_array += 1
 
-    for i in range(end_of_temp_array + 1):
+    for i in range(end_of_temp_array):
         arr[i] = temp_array[i]
 
     end_of_array = end_of_temp_array
     return True
 
-end_of_array = n
+end_of_array = n - 1
 
 while True:
     if not bomb():
         break
 
 print(end_of_array)
-for i in range(end_of_array):
-    print(arr[i])
+if end_of_array:
+    for i in range(end_of_array):
+        print(arr[i])
