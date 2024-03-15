@@ -19,7 +19,7 @@ def search(end_of_array):
     start_idx = 0
     cnt = 1
     result = []
-    for i in range(end_of_array):
+    for i in range(end_of_array - 1):
         if arr[i] == arr[i + 1]:
             cnt += 1
         else:
@@ -44,7 +44,7 @@ def bomb():
     temp_array = [0] * end_of_array
 
     end_of_temp_array = 0
-    for i in range(end_of_array + 1):
+    for i in range(end_of_array):
         if i not in remove_list:
             temp_array[end_of_temp_array] = arr[i]
             end_of_temp_array += 1
@@ -55,7 +55,7 @@ def bomb():
     end_of_array = end_of_temp_array
     return True
 
-end_of_array = n - 1
+end_of_array = n
 
 while True:
     if not bomb():
