@@ -30,6 +30,9 @@ visited = [
 ]
 visited[x][y] = True
 
+left_turn = 0
+right_turn = 0
+
 while True:
     if is_wall(x, y):
         nx, ny = x + dx[dir_num], y + dy[dir_num]
@@ -38,11 +41,13 @@ while True:
             break
         elif arr[nx][ny] == '#':
             dir_num = (dir_num - 1 + 4) % 4
+            left_turn += 1
+            right_turn = 0
         elif arr[nx][ny] == '.':
             # 이동하려한 공간이 이미 방문한 곳일 때(탈출 불가)
-            if visited[nx][ny]:
-                t = -1
-                break
+            # if visited[nx][ny]:
+            #     t = -1
+            #     break
             # 방문한 적이 없다면
             visited[nx][ny] = True
             x = nx
@@ -51,10 +56,16 @@ while True:
 
     else:
         dir_num = (dir_num + 1) % 4
+        left_turn = 0
+        right_turn += 1
         nx = x + dx[dir_num]
         ny = y + dy[dir_num]
         x = nx
         y = ny
         t += 1
+
+    if left_turn > 4 or right_turn > 4:
+        t = -1
+        break
 
 print(t)
