@@ -51,8 +51,8 @@ while True:
             t += 1
         else:
             dir_num = (dir_num + 1) % 4
-            nx = x + dx[dir_num]
-            ny = y + dy[dir_num]
+            nx = nx + dx[dir_num]
+            ny = ny + dy[dir_num]
             x = nx
             y = ny
             t += 2
