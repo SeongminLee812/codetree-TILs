@@ -38,23 +38,22 @@ while True:
         break
     visited[x][y][dir_num] = True
 
-    if is_wall(x, y):
-        nx, ny = x + dx[dir_num], y + dy[dir_num]
-        if out_of_grid(nx, ny):
+    nx, ny = x + dx[dir_num], y + dy[dir_num]
+    if out_of_grid(nx, ny):
+        t += 1
+        break
+    elif arr[nx][ny] == '#':
+        dir_num = (dir_num - 1 + 4) % 4
+    elif arr[nx][ny] == '.':
+        if is_wall(nx, ny):
+            x = nx
+            y = ny
             t += 1
-            break
-        elif arr[nx][ny] == '#':
-            dir_num = (dir_num - 1 + 4) % 4
-        elif arr[nx][ny] == '.':
-            if is_wall(nx, ny):
-                x = nx
-                y = ny
-                t += 1
-            else:
-                dir_num = (dir_num + 1) % 4
-                nx = x + dx[dir_num]
-                ny = y + dy[dir_num]
-                x = nx
-                y = ny
-                t += 2
+        else:
+            dir_num = (dir_num + 1) % 4
+            nx = x + dx[dir_num]
+            ny = y + dy[dir_num]
+            x = nx
+            y = ny
+            t += 2
 print(t)
