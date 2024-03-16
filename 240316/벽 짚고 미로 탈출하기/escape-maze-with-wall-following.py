@@ -64,8 +64,9 @@ while True:
         y = ny
         t += 1
 
-    if t > 10000:
+    if t > 10000 or left_turn > 4 or right_turn > 4:
         t = -1
         break
+        
 
 print(t)
