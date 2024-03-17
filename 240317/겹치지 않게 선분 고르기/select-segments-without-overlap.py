@@ -7,31 +7,30 @@ for _ in range(n):
 def check(bool_list):
     drawed = [False] * 1001
 
-    for i in range(n):
-        if bool_list[i]:
-            start, end = segments[i]
-            for x in range(start, end + 1):
-                if drawed[x] != 0:
-                    return False
-                drawed[x] += 1
+    for i in range(len(bool_list)):
+        start, end = bool_list[i]
+        for x in range(start, end + 1):
+            if drawed[x] != 0:
+                return False
+            drawed[x] += 1
 
     return True
 
 
 bool_list = []
 ans = 0
-def go(index):
+def go(cnt):
     global ans
-    if index == n + 1:
+    if cnt == n:
         if check(bool_list):
-            cnt = sum(bool_list)
-            ans = max(cnt, ans)
+            ans = max(ans, len(bool_list))
         return
 
-    for i in range(2):
-        bool_list.append(i)
-        go(index + 1)
-        bool_list.pop()
+    bool_list.append(segments[cnt])
+    go(cnt + 1)
+    bool_list.pop()
 
-go(1)
+    go(cnt + 1)
+
+go(0)
 print(ans)
