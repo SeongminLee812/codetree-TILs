@@ -5,14 +5,12 @@ for _ in range(n):
     segments.append((start, end))
 
 def check(bool_list):
-    drawed = [False] * 1001
-
     for i in range(len(bool_list)):
-        start, end = bool_list[i]
-        for x in range(start, end + 1):
-            if drawed[x] != 0:
+        for j in range(i + 1, len(bool_list)):
+            s1, e1 = bool_list[i]
+            s2, e2 = bool_list[j]
+            if s1 <= s2 <= e1 or s1 <= e2 <= e1:
                 return False
-            drawed[x] += 1
 
     return True
 
