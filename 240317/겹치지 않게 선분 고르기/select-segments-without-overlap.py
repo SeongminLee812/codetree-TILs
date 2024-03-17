@@ -9,7 +9,7 @@ def check(bool_list):
         for j in range(i + 1, len(bool_list)):
             s1, e1 = bool_list[i]
             s2, e2 = bool_list[j]
-            if s1 <= s2 <= e1 or s1 <= e2 <= e1:
+            if s2 <= e1:
                 return False
 
     return True
