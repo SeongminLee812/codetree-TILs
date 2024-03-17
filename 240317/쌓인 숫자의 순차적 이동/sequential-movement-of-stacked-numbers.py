@@ -33,9 +33,10 @@ def move(num):
             for val in arr[nx][ny]:
                 if val > max_val:
                     max_val = val
-                    max_pos = nx, ny
+                    max_pos = dx, dy
 
-    next_x, next_y = max_pos
+    dx, dy = max_pos
+    next_x, next_y = x + dx, y + dy
 
     key = arr[x][y]
     key_index = key.index(num)
