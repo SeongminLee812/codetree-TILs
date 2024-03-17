@@ -8,7 +8,6 @@ for i in range(n):
     for j in range(n):
         arr[i][j] = [arr[i][j]]
 
-print(arr)
 directions = list(map(int, input().split()))
 
 def search(num):
