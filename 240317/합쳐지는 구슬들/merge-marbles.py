@@ -17,14 +17,14 @@ directions = [
     for _ in range(n)
 ]
 
-dx = [-1, 0, 1, 0]
-dy = [0, -1, 0, 1]
+dx = [-1, 0, 0, 1]
+dy = [0, -1, 1, 0]
 
 mapping = {
     'U': 0,
     'L': 1,
-    'D': 2,
-    'R': 3
+    'D': 3,
+    'R': 2
 }
 
 for num in range(1, m + 1):
@@ -70,6 +70,9 @@ def reset():
             directions[i][j] = next_directions[i][j]
 
 for _ in range(t):
+    # print('========')
+    # for line in weight:
+    #     print(' '.join(map(str, line)))
     next_count = [
         [0] * n
         for _ in range(n)
@@ -92,6 +95,11 @@ for _ in range(t):
             if count[i][j]:
                 move(i, j, directions[i][j])
     reset()
+# 
+# 
+# print('========')
+# for line in weight:
+#     print(' '.join(map(str, line)))
 
 print(sum([
     count[i][j] for i in range(n) for j in range(n)
