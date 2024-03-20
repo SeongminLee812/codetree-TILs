@@ -9,7 +9,7 @@ move_each_turn = list(map(int, input().split()))
 def calc_score():
     total_pass = 0
     for i in range(k):
-        if score_board[i] <= 0:
+        if score_board[i] <= 1:
             total_pass += 1
     return total_pass
 
@@ -24,9 +24,8 @@ def choose_knight(curr_index):
     for i in range(k):
         if score_board[i] > 0:
             knights.append(i)
-            score_board[i] -= move_each_turn[curr_index]
+            score_board[i] = score_board[i] - move_each_turn[curr_index]
             choose_knight(curr_index + 1)
-
             score_board[i] += move_each_turn[curr_index]
             knights.pop()
         else:
