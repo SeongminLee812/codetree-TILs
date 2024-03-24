@@ -14,6 +14,7 @@ ans = 0
 
 def choose(curr_num):
     global ans
+    ans = max(calc_score(), ans)
     if curr_num == n:
         cnt = calc_score()
         ans = max(cnt, ans)
