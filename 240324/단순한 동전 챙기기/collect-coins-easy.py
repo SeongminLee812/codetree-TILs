@@ -28,7 +28,7 @@ def get_dist(start_point, end_point):
     diff_y = abs(end_point[2] - start_point[2])
     return diff_x + diff_y
 
-def find_combi(curr_index, cnt, dist, last_index):
+def find_combi(coin_index, cnt, dist, last_index):
     '''
     전체 동전 중 curr_index 번째 함수를 선택할 지 선택하지 않을 지 결정하는 함수
     동전의 개수가 3이 되거나, curr_index가 동전의 개수를 초과하면 종료
@@ -46,18 +46,15 @@ def find_combi(curr_index, cnt, dist, last_index):
         dist = dist + get_dist(coins[last_index], end)
         ans = min(ans, dist)
         return
-    if curr_index == coin_cnt + 1:
+    if coin_index == coin_cnt:
         return
 
-    for i in range(last_index + 1, coin_cnt):
-        # 선택
-        diff = get_dist(coins[last_index], coins[i])
-        find_combi(curr_index=curr_index + 1,
-                   cnt=cnt + 1,
-                   dist=dist + diff,
-                   last_index=i)
-        # 선택하지 않음
-        find_combi(curr_index + 1, cnt, dist, i)
+    # 선택
+    find_combi(coin_index + 1, cnt + 1,
+               dist + get_dist(coins[last_index], coins[coin_index]),
+               coin_index)
+
+    find_combi(coin_index + 1, cnt, dist, last_index)
 
 # 도달할 수 없는 경우 예외처리
 if coin_cnt < 3:
@@ -69,6 +66,6 @@ ans = sys.maxsize
 # 시작 코인 설정
 for i in range(0, coin_cnt - 2):
     dist = get_dist(start, coins[i])
-    find_combi(0, 1, dist, i)
+    find_combi(0, 0, dist, i)
 
 print(ans)
