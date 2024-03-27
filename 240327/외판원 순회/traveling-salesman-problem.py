@@ -26,7 +26,7 @@ def choose(curr_index):
         return
 
     for i in range(1, n):
-        if visited[i]:
+        if visited[i] or arr[path[-1]][i] == 0:
             continue
         visited[i] = True
         path.append(i)
