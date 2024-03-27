@@ -14,6 +14,8 @@ def calc_cost(path):
     total = 0
     prev_i = 0
     for i in range(1, n + 1):
+        if arr[local_path[prev_i]][local_path[i]] == 0:
+            return sys.maxsize
         value = arr[local_path[prev_i]][local_path[i]]
         total += value
         prev_i = i
@@ -26,7 +28,7 @@ def choose(curr_index):
         return
 
     for i in range(1, n):
-        if visited[i] or arr[path[-1]][i] == 0:
+        if visited[i]:
             continue
         visited[i] = True
         path.append(i)
