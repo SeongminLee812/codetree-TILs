@@ -1,3 +1,5 @@
+import sys
+
 n, m = map(int, input().split())
 arr = [
     list(map(int, input().split()))
@@ -8,6 +10,7 @@ visited = [
     for _ in range(n)
 ]
 
+sys.setrecursionlimit(10000)
 max_height = 0
 for line in arr:
     max_height = max(max_height, max(line))
