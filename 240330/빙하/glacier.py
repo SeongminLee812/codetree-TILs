@@ -11,14 +11,14 @@ def in_range(x, y):
     return x >= 0 and x < n and y >= 0 and y < m
 
 def can_go(x, y):
-    global ice_cnt, last_ice_pos
+    global ice_cnt, last_ice_pos, ice_q
     if not in_range(x, y) or visited[x][y]:
         return False
     if arr[x][y] == 1:
         arr[x][y] = 0
         ice_cnt += 1
         visited[x][y] = True
-        last_ice_pos = x, y
+        ice_q.append((x, y))
         return False
     return True
 
@@ -37,15 +37,20 @@ def bfs():
 t = 0
 last_ice_cnt = 1
 last_ice_pos = 0, 0
+ice_q = deque()
+visited = [
+    [False] * m
+    for _ in range(n)
+]
+
+ice_q.append((0, 0))
+
 while True:
     ice_cnt = 0
-    visited = [
-        [False] * m
-        for _ in range(n)
-    ]
-    q = deque()
-    visited[0][0] = True
-    q.append(last_ice_pos)
+    for x, y in ice_q:
+        visited[x][y] = True
+    q = ice_q
+    ice_q = deque()
     bfs()
 
     if ice_cnt:
