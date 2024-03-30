@@ -34,15 +34,9 @@ def bfs():
                 q.append((nx, ny))
 
                 # max 값 갱신
-                if arr[nx][ny] > max_val:
+                if (arr[nx][ny], -nx, -ny) > (max_val, -next_x, -next_y):
                     next_x, next_y = nx, ny
                     max_val = arr[nx][ny]
-                elif arr[nx][ny] == max_val:
-                    if nx < next_x:
-                        next_x, next_y = nx, ny
-                    elif nx == next_x and ny < next_y:
-                        next_x, next_y = nx, ny
-
 
 x, y = r - 1, c - 1
 next_x, next_y = x, y
