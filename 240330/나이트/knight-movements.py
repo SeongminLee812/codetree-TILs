@@ -43,7 +43,7 @@ def bfs():
 bfs()
 
 end = step[r2 - 1][c2 - 1]
-if end:
-    print(end)
-else:
+if not end and not visited[r2 - 1][c2 - 1]:
     print(-1)
+else:
+    print(end)
