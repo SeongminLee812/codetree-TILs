@@ -25,7 +25,7 @@ walls = [
     (i, j)
     for i in range(n)
     for j in range(n)
-        if arr[i][j] == 1
+    if arr[i][j] == 1
 ]
 
 def in_range(x, y):
@@ -50,12 +50,14 @@ def initialize():
             step[i][j] = 0
 
 def remove_wall(wall_list):
-    for wall in wall_list:
-        arr[wall[0]][wall[1]] = 0
+    for wall_index in wall_list:
+        x, y = walls[wall_index]
+        arr[x][y] = 0
 
 def return_wall(wall_list):
-    for wall in wall_list:
-        arr[wall[0]][wall[1]] = 1
+    for wall_index in wall_list:
+        x, y = walls[wall_index]
+        arr[x][y] = 1
 
 
 def bfs():
@@ -66,20 +68,23 @@ def bfs():
         x, y = q.popleft()
         for dx, dy in zip(dxs, dys):
             nx, ny = x + dx, y + dy
-            if can_go(x, y):
+            if can_go(nx, ny):
                 push(nx, ny, step[x][y] + 1)
 
 def choose(num_index, cnt):
     global ans
     if cnt == k:
         remove_wall(selected)
+        initialize()
+        visited[r1 - 1][c1 - 1] = True
+        q.append((r1 - 1, c1 - 1))
         bfs()
         if step[r2 - 1][c2 - 1]:
             ans = min(ans, step[r2 - 1][c2 - 1])
         return_wall(selected)
         return
 
-    if num_index == n:
+    if num_index == len(walls):
         return
 
     selected.append(num_index)
@@ -93,7 +98,6 @@ selected = []
 ans = sys.maxsize
 
 choose(0, 0)
-
 if ans == sys.maxsize:
     print(-1)
 else:
