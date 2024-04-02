@@ -1,3 +1,5 @@
+import sys
+
 arr = input()
 
 def calc(num_list):
@@ -28,7 +30,7 @@ def go(curr_index_in_ans):
         go(curr_index_in_ans + 1)
         nums.pop()
 
-ans = 0
+ans = -sys.maxsize
 nums = []
 
 go(0)
