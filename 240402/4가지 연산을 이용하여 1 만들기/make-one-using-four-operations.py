@@ -32,6 +32,6 @@ def bfs():
             push(x - 1, step[x] + 1)
 
 q = deque()
-q.append(1)
+push(1, 0)
 bfs()
 print(step[n])
