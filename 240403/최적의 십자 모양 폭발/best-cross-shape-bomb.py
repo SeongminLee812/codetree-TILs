@@ -15,6 +15,7 @@ def bomb(x, y, original_array):
     bomb_range = result[x][y]
     dxs = [-1, 1, 0, 0]
     dys = [0, 0, -1, 1]
+    bomb_range[x][y] = 0
 
     for br in range(1, bomb_range):
         for dx, dy in zip(dxs, dys):
