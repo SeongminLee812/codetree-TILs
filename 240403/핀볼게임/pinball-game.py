@@ -24,17 +24,19 @@ def go(x, y, dir_num):
     elapsed = 1
 
     while True:
+        if arr[x][y] == 1:
+            dir_num = 3 - dir_num
+        elif arr[x][y] == 2:
+            dir_num = backslash_dir_num(dir_num)
+
         nx, ny = x + dx[dir_num], y + dy[dir_num]
         if in_range(nx, ny):
-            if arr[nx][ny] == 1:
-                dir_num = 3 - dir_num
-            elif arr[nx][ny] == 2:
-                dir_num = backslash_dir_num(dir_num)
             x, y = nx, ny
             elapsed += 1
         else:
             elapsed += 1
             break
+
     return elapsed
 
 ans = 0
@@ -47,16 +49,19 @@ for i in range(n):
 for i in range(n):
     dir_num = 2
     x, y = i, n - 1
+
     ans = max(ans, go(x, y, dir_num))
 
 for i in range(n):
     dir_num = 3
     x, y = n - 1, i
+
     ans = max(ans, go(x, y, dir_num))
 
 for i in range(n):
     dir_num = 0
     x, y = i, 0
+
     ans = max(ans, go(x, y, dir_num))
 
 print(ans)
