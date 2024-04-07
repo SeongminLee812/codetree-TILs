@@ -1,13 +1,25 @@
 import sys
 
 n = int(input())
-arr = list(map(int, input().split()))
 
-dp = [1] * n
+a = [0] + list(map(int, input().split()))
+INT_MIN = -sys.maxsize
+MAX_VAL = max(a)
+dp = [
+    [INT_MIN] * (MAX_VAL + 1)
+    for _ in range(len(a))
+]
 
-for i in range(1, n):
-    for j in range(0, i):
-        if arr[j] < arr[i]:
-            dp[i] = max(dp[j] + 1, dp[i])
+dp[0][0] = 0
 
-print(max(dp))
+for i in range(1, n + 1):
+    for j in range(MAX_VAL + 1):
+        dp[i][j] = dp[i - 1][j]
+        if a[i] == j:
+            for l in range(j):
+                if dp[i - 1][l] != INT_MIN:
+                    dp[i][j] = max(dp[i][j], dp[i - 1][l] + 1)
+
+for line in dp:
+    print(line)
+print(max(dp[MAX_VAL]))
