@@ -20,6 +20,4 @@ for i in range(1, n + 1):
                 if dp[i - 1][l] != INT_MIN:
                     dp[i][j] = max(dp[i][j], dp[i - 1][l] + 1)
 
-for line in dp:
-    print(line)
-print(max(dp[MAX_VAL]))
+print(max(dp[n]))
