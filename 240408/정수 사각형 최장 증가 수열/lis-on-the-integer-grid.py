@@ -1,14 +1,22 @@
 import sys
 import heapq
 INT_MIN = -sys.maxsize
-sys.setrecursionlimit(10)
 
-n = int(input())
+with open('input.txt', 'r') as f:
+    n = int(f.readline())
 
-arr = [
-    list(map(int, input().split()))
-    for _ in range(n)
-]
+    arr = [
+        list(map(int, f.readline().split()))
+        for _ in range(n)
+    ]
+
+
+# n = int(input())
+#
+# arr = [
+#     list(map(int, input().split()))
+#     for _ in range(n)
+# ]
 
 memo = [
     [0] * n
@@ -38,14 +46,20 @@ def get_max(x, y, threshold, step):
     dxs = [-1, 1, 0, 0]
     dys = [0, 0, -1, 1]
 
+    _heap = []
     for dx, dy in zip(dxs, dys):
         nx, ny = x + dx, y + dy
+
+        # 오른차순 정렬 필요
         if can_go(nx, ny, threshold):
+            heapq.heappush(_heap, (arr[nx][ny], nx, ny))
+
+        for t, nx, ny in _heap:
             memo[nx][ny] = step + 1
             get_max(nx, ny, arr[nx][ny], step + 1)
 
-
     return memo[x][y]
+
 
 # 우선순위 힙
 q = []
