@@ -49,9 +49,12 @@ def get_max(x, y, step):
     for dx, dy in zip(dxs, dys):
         nx, ny = x + dx, y + dy
 
-        # 오른차순 정렬 필요 -> 작은 수 부터 방문
+        # # 오른차순 정렬 필요 -> 작은 수 부터 방문
         if can_go(nx, ny, arr[x][y], step):
-            heapq.heappush(_heap, (arr[nx][ny], nx, ny)) # 이때 이미 넣어놈
+            if memo[nx][ny] < step:
+                memo[nx][ny] = step
+            get_max(nx, ny, step + 1)
+        #     heapq.heappush(_heap, (arr[nx][ny], nx, ny)) # 이때 이미 넣어놈
 
     # print('now :', x, y,)
     # print(_heap)
