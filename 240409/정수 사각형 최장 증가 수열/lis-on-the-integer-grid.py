@@ -2,21 +2,21 @@ import heapq
 import sys
 sys.setrecursionlimit(250001)
 
-with open('input.txt', 'r') as f:
-    n = int(f.readline())
+# with open('input.txt', 'r') as f:
+#     n = int(f.readline())
 
-    arr = [
-        list(map(int, f.readline().split()))
-        for _ in range(n)
-    ]
+#     arr = [
+#         list(map(int, f.readline().split()))
+#         for _ in range(n)
+#     ]
 
 
-# n = int(input())
-#
-# arr = [
-#     list(map(int, input().split()))
-#     for _ in range(n)
-# ]
+n = int(input())
+
+arr = [
+    list(map(int, input().split()))
+    for _ in range(n)
+]
 
 memo = [
     [0] * n
