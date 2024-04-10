@@ -6,7 +6,7 @@ a = [
 ]
 
 dp = [
-    [0] * n
+    [0] * m
     for _ in range(n)
 ]
 
