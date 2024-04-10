@@ -4,13 +4,13 @@ segments = [
     for _ in range(n)
 ]
 
+segments.sort()
+
 dp = [1] * n
 
 for i in range(n):
-    for j in range(n):
-        if i == j:
-            continue
-        if segments[j][0] > segments[i][1] or segments[i][0] > segments[j][1]:
-            dp[i] += 1
+    for j in range(i):
+        if segments[j][1] < segments[i][0]:
+            dp[i] = max(dp[i], dp[j] + 1)
 
 print(max(dp))
