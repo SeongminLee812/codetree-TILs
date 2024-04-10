@@ -1,16 +1,26 @@
 n, m = map(int, input().split())
 coins = list(map(int, input().split()))
 
-dp = [10001] * (10001)
+memo = [10001] * (10001)
 for j in range(n):
-    dp[coins[j]] = 1
+    memo[coins[j]] = 1
 
-for i in range(m + 1):
+memo[0] = 1
+
+# memoization 풀이
+def memoization(index):
+    if memo[index] < 10001:
+        return memo[index]
+
+    best = 10001
     for j in range(n):
-        if coins[j] < i and dp[i - coins[j]] != -1:
-            dp[i] = min(dp[i], dp[i - coins[j]] + 1)
+        if index >= coins[j]:
+            best = min(best, memoization(index - coins[j]) + 1)
+    memo[index] = best
+    return memo[index]
 
-if dp[m] == 10001:
-    print(-1)
+ans = memoization(m)
+if ans < 10001:
+    print(ans)
 else:
-    print(dp[m])
+    print(-1)
