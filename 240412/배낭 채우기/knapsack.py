@@ -9,7 +9,7 @@ for i in range(1, n + 1):
 dp = [-1] * (m + 1)
 dp[0] = 0
 
-for i in range(n):
+for i in range(1, n + 1):
     for j in range(m, 0, -1):
         if weight[i] <= j:
             dp[j] = max(dp[j], dp[j - weight[i]] + value[i])
