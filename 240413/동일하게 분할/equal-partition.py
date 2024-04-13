@@ -16,8 +16,8 @@ dp[0] = True
 
 for i in range(n):
     for j in range(max_sum_of_group, 0, -1):
-        if arr[i] <= j:
-            dp[j] = dp[j - arr[i]]
+        if arr[i] <= j and dp[j - arr[i]]:
+            dp[j] = True            
 
 if dp[max_sum_of_group]:
     print('Yes')
