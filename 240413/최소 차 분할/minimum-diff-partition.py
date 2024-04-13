@@ -10,7 +10,7 @@ dp = [False] * (max_sum_of_group + 1)
 dp[0] = True
 
 for i in range(n + 1):
-    for j in range(max_sum_of_group + 1):
+    for j in range(max_sum_of_group, 0, -1):
         if arr[i] <= j and dp[j - arr[i]]:
             dp[j] = True
 
