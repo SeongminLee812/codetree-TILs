@@ -18,4 +18,4 @@ for i in range(1, n + 1):
             dp[i][j] -= 1
         dp[i][j] = int(dp[i][j] % MOD)
 
-print(sum(dp[n]))
+print(sum(dp[n]) % MOD)
