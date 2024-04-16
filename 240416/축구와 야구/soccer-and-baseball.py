@@ -25,10 +25,10 @@ for i in range(1, n + 1):
             if j == 0 and k == 0:
                 continue
             if j == 0:
-                dp[i][j][k] = max(dp[i][j][k], dp[i - 1][j][k - 1] + b[i])
+                dp[i][j][k] = max(dp[i][j][k], dp[i - 1][j][k - 1] + b[i], dp[i - 1][j][k])
             elif k == 0:
-                dp[i][j][k] = max(dp[i][j][k], dp[i - 1][j - 1][k] + s[i])
+                dp[i][j][k] = max(dp[i][j][k], dp[i - 1][j - 1][k] + s[i], dp[i - 1][j][k])
             else:
-                dp[i][j][k] = max(dp[i][j][k], dp[i - 1][j - 1][k] + s[i], dp[i - 1][j][k - 1] + b[i])
+                dp[i][j][k] = max(dp[i][j][k], dp[i - 1][j - 1][k] + s[i], dp[i - 1][j][k - 1] + b[i], dp[i - 1][j][k])
 
 print(dp[n][11][9])
