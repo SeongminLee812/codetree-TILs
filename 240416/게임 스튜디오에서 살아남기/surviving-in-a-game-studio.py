@@ -16,9 +16,9 @@ dp[1][1][0] = 1
 for i in range(1, n):
     for j in range(3):
         for k in range(3):
-            dp[i + 1][j][0] = (dp[i + 1][j][0] + dp[i][j][k]) % MOD
-            dp[i + 1][j][k + 1] = (dp[i + 1][j][k + 1] + dp[i][j][k]) % MOD
-            dp[i + 1][j + 1][0] = (dp[i + 1][j + 1][0] + dp[i][j][k]) % MOD
+            dp[i + 1][j][0] = (dp[i + 1][j][0] + dp[i][j][k]) % MOD # G가 붙는 경우
+            dp[i + 1][j][k + 1] = (dp[i + 1][j][k + 1] + dp[i][j][k]) % MOD # B가 붙는 경우
+            dp[i + 1][j + 1][0] = (dp[i + 1][j + 1][0] + dp[i][j][k]) % MOD # T가 붙는 경우
 
 
 ans = 0
