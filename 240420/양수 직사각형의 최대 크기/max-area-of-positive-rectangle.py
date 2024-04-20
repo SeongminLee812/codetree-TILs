@@ -14,7 +14,7 @@ def all_positive(start_x, start_y, end_x, end_y):
     return all_pos
 
 
-max_rec = 0
+max_rec = -1
 for i in range(n):
     for j in range(m):
         for nx in range(n - 1, i - 1, -1):
