@@ -21,7 +21,6 @@ def run_length(strings):
 ans = 100
 for _ in range(len(a) + 1):
     ans = min(ans, run_length(''.join(a)))
-    print(run_length(''.join(a)))
     a = list(a)
     temp = a[-1]
     for i in range(len(a) - 1, 0, -1):
