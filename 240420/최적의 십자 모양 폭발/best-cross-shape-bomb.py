@@ -40,9 +40,9 @@ def check_pair():
         for j in range(n):
             if new_arr[i][j] == 0:
                 continue
-            if i < n - 1 and new_arr[i][j] == new_arr[i + 1][j]:
+            if in_range(i, i + 1) and new_arr[i][j] == new_arr[i + 1][j]:
                 result += 1
-            if j < n - 1 and new_arr[i][j] == new_arr[i][j + 1]:
+            if in_range(j, j + 1) and new_arr[i][j] == new_arr[i][j + 1]:
                 result += 1
     return result
 
