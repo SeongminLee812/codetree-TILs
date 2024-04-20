@@ -17,7 +17,7 @@ def run_length(strings):
     return len(result)
 
 ans = 100
-for _ in range(len(a)):
+for _ in range(len(a) + 1):
     ans = min(ans, run_length(''.join(a)))
 
     a = list(a)
