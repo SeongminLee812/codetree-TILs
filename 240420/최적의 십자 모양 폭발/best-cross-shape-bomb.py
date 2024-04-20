@@ -14,7 +14,7 @@ def boom(x, y, boom_range):
     dys = [0, 0, -1, 1]
 
     new_arr[x][y] = 0
-    for i in range(1, boom_range + 1):
+    for i in range(boom_range):
         for dx, dy in zip(dxs, dys):
             nx = x + dx * i
             ny = y + dy * i
@@ -40,9 +40,9 @@ def check_pair():
         for j in range(n):
             if new_arr[i][j] == 0:
                 continue
-            if in_range(i, i + 1) and new_arr[i][j] == new_arr[i + 1][j]:
+            if i < n - 1 and new_arr[i][j] == new_arr[i + 1][j]:
                 result += 1
-            if in_range(j, j + 1) and new_arr[i][j] == new_arr[i][j + 1]:
+            if j < n - 1 and new_arr[i][j] == new_arr[i][j + 1]:
                 result += 1
     return result
 
@@ -53,5 +53,6 @@ for i in range(n):
         boom(i, j, new_arr[i][j])
         move_down()
         ans = max(ans, check_pair())
+
 
 print(ans)
