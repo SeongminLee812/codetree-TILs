@@ -9,7 +9,7 @@ def all_positive(start_x, start_y, end_x, end_y):
     all_pos = True
     for i in range(end_x, start_x - 1, -1):
         for j in range(end_y, start_y - 1, -1):
-            if arr[i][j] < 0:
+            if arr[i][j] <= 0:
                 return False
     return all_pos
 
