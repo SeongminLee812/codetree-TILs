@@ -1,23 +1,25 @@
+import sys
+
 equation = input()
+ans = -sys.maxsize
 
 def calc(num_list):
     num_dict = dict(zip(['a', 'b', 'c', 'd', 'e', 'f'], num_list))
-    ans = num_dict[equation[0]]
+    result = num_dict[equation[0]]
     for i in range(1, len(equation), 2):
         if equation[i] == '-':
-            ans -= num_dict[equation[i + 1]]
+            result -= num_dict[equation[i + 1]]
         elif equation[i] == '*':
-            ans *= num_dict[equation[i + 1]]
+            result *= num_dict[equation[i + 1]]
         elif equation[i] == '+':
-            ans += num_dict[equation[i + 1]]
-    return ans
-
+            result += num_dict[equation[i + 1]]
+    return result
 
 
 def go(select_index):
-    global result
+    global ans
     if select_index == 7:
-        result = max(result, calc(selected))
+        ans = max(ans, calc(selected))
         return
 
     for i in range(1, 5):
@@ -25,7 +27,6 @@ def go(select_index):
         go(select_index + 1)
         selected.pop()
 
-result = 0
 selected = []
 go(1)
-print(result)
+print(ans)
