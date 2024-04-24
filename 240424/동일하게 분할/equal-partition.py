@@ -9,20 +9,16 @@ if sum(arr) % 2 != 0:
 
 target = sum(arr) // 2
 
-dp = [
-    [False] * (target + 1)
-    for _ in range(n + 1)
-]
+dp = [False] * (target + 1)
 
-dp[0][0] = True
+dp[0] = True
 
-for i in range(1, n + 1):
-    for j in range(target + 1):
-        dp[i][j] = dp[i - 1][j]
-        if arr[i] <= j:
-            dp[i][j] = any([dp[i][j], dp[i - 1][j - arr[i]]])
+for j in range(n + 1):
+    for i in range(target, -1, -1):
+        if i >= arr[j]:
+            dp[i] = any([dp[i], dp[i - arr[j]]])
 
-if dp[n][target]:
+if dp[target]:
     print('Yes')
 else:
     print('No')
