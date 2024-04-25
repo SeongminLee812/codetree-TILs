@@ -8,14 +8,18 @@ for _ in range(n):
     x, direction = input().split()
     x = int(x)
     if direction == 'R':
-        for i in range(now, now + x):
-            arr[i] = 'B'
-        now = i
+        while x:
+            arr[now] = 'B'
+            now += 1
+            x -= 1
 
     else:
-        for i in range(now, now - x, -1):
-            arr[i] = 'W'
-        now = i
+        while x:
+            arr[now] = 'W'
+            now -= 1
+            x -= 1
+
+
 
 ans_dict = defaultdict(int)
 for i in range(200000):
