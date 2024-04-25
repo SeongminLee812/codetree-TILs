@@ -9,6 +9,6 @@ for i in range(n):
     else:
         ans = max(ans, length)
         length = 0
-    print(length, end=' ')
+
 
 print(ans)
