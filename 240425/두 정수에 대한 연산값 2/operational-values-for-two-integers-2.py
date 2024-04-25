@@ -5,4 +5,4 @@ def calc(a, b):
         return a + 10, b * 2
     
 a, b = map(int, input().split())
-print(calc(a, b))
+print(*calc(a, b))
