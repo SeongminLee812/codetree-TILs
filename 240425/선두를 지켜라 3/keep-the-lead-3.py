@@ -1,7 +1,7 @@
-n, m = map(int, input().split())
+ㅠn, m = map(int, input().split())
 
-A = [0] * 1001
-B = [0] * 1001
+A = [0] * 1002
+B = [0] * 1002
 
 pos = 1
 for _ in range(n):
