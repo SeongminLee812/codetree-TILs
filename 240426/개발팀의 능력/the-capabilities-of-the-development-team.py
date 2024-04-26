@@ -6,7 +6,7 @@ ans = sys.maxsize
 total = sum(arr)
 
 for i in range(5 - 1):
-    for j in range(i, 5):
+    for j in range(i + 1, 5):
         for k in range(5):
             if k == i or k == j:
                 continue
