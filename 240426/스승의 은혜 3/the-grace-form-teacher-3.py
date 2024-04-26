@@ -26,8 +26,8 @@ for i in range(n):
         cnt += 1
         student += 1
     ans = max(ans, student)
-    
-    total[i] *= 2
+
+    total[i] = p[i] + s[i]
 
 
 print(ans)
