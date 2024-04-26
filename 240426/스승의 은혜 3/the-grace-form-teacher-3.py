@@ -1,26 +1,31 @@
+import sys
+
 n, b = map(int, input().split())
 
 p = [0] * n
 s = [0] * n
+total = [0] * n
 for i in range(n):
     p[i], s[i] = map(int, input().split())
+    total[i] = p[i] + s[i]
+  
+ans = -sys.maxsize
 
-ans = 0
 for i in range(n):
-    p[i] //= 2
-    candidate = []
-    for j in range(n):
-        candidate.append(p[j] + s[j])
-    candidate.sort()
-    remain = b
-    k = 0
-    while remain and k < n:
-        remain -= candidate[k]
-        if remain < 0:
+    total[i] = p[i] // 2 + s[i]
+    temp = total[:]
+    
+    temp.sort()
+    cnt = 0
+    student = 0
+    now = 0
+    while True:
+        now += temp[student]
+        if now > b or student == n:
             break
-        k += 1
-    ans = max(ans, k)
+        cnt += 1
+        student += 1
+    ans = max(ans, student)
 
-    p[i] *= 2
 
 print(ans)
