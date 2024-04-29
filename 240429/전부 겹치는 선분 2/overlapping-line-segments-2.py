@@ -1,3 +1,5 @@
+import sys
+
 n = int(input())
 
 arr = [
@@ -5,31 +7,25 @@ arr = [
     for _ in range(n)
 ]
 
-def overlap(segment1, segment2):
-    x1, x2 = segment1
-    y1, y2 = segment2
-    if x2 < y1 or x1 > y2:
-        return False
-    return True
 
-all_okay = False
 
-for i in range(n):
-    check_arr = arr[:i] + arr[i + 1:]
-    is_okay = True
-    for j in range(n - 1):
-        for k in range(j + 1, n - 1):
-            if not overlap(check_arr[j], check_arr[k]):
-                is_okay = False
-                break
-        if not is_okay:
-            break
+for skip in range(n):
+    max_x1, min_x2 = 0, sys.maxsize
+    okay = False
+    for i in range(n):
+        if skip == i:
+            continue
 
-    if is_okay:
-        all_okay = True
+
+
+        max_x1 = max(max_x1, arr[i][0])
+        min_x2 = min(min_x2, arr[i][1])
+
+    if min_x2 >= max_x1:
+        okay = True
         break
 
-if  n == 1 or all_okay:
+if okay:
     print('Yes')
 else:
     print('No')
