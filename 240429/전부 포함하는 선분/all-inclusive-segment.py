@@ -16,6 +16,6 @@ for i in range(n):
             continue
         min_x1 = min(min_x1, segments[j][0])
         max_x2 = max(max_x2, segments[j][1])
-    ans = min(ans, max_x2 - min_x)
+    ans = min(ans, max_x2 - min_x1)
 
 print(ans)
