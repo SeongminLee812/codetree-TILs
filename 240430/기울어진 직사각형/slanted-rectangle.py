@@ -55,9 +55,15 @@ for i in range(n):
                         forth_y = third_y + dy[3] * forth_step
                         if not in_range(forth_x, forth_y):
                             break
+                        if forth_step == 1:
+                            forth_point = third_point + arr[forth_x][forth_y]
+                        else:
+                            forth_point += arr[forth_x][forth_y]
 
                         if forth_x == start_x and forth_y == start_y:
-                            ans = max(ans, third_point)
+
+                            forth_point -= start_point
+                            ans = max(ans, forth_point)
 
 
 
