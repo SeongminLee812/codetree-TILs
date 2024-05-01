@@ -1,15 +1,21 @@
-n, m = map(int, input().split())
+from collections import defaultdict
 
-arr = list(map(int, input().split()))
-search_things = list(map(int, input().split()))
+# n, m = map(int, input().split())
+#
+# arr = list(map(int, input().split()))
+# search_things = list(map(int, input().split()))
 
-count_dict = dict()
+with open('input.txt', 'r') as f:
+    input = f.readline
+    n, m = map(int, input().split())
+    arr = list(map(int, input().split()))
+    search_things = list(map(int, input().split()))
 
-for search_thing in search_things:
-    count_dict[search_thing] = 0
-    for target in arr:
-        if target == search_thing:
-            count_dict[search_thing] += 1
+count_dict = defaultdict(int)
+
+for i in range(n):
+    count_dict[arr[i]] += 1
+
 
 for search_thing in search_things:
     print(count_dict[search_thing], end=' ')
