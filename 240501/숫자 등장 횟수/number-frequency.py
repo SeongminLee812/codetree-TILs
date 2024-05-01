@@ -1,15 +1,9 @@
 from collections import defaultdict
 
-# n, m = map(int, input().split())
-#
-# arr = list(map(int, input().split()))
-# search_things = list(map(int, input().split()))
+n, m = map(int, input().split())
 
-with open('input.txt', 'r') as f:
-    input = f.readline
-    n, m = map(int, input().split())
-    arr = list(map(int, input().split()))
-    search_things = list(map(int, input().split()))
+arr = list(map(int, input().split()))
+search_things = list(map(int, input().split()))
 
 count_dict = defaultdict(int)
 
