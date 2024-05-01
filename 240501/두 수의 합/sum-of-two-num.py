@@ -1,18 +1,17 @@
-from collections import Counter
+from collections import Counter, defaultdict
 
 n, k = map(int, input().split())
 arr = list(map(int, input().split()))
 
-count_dict = Counter(arr)
+count_dict = defaultdict(int)
 
 ans = 0
 
-for x in arr:
-    if x == k - x:
-        ans += count_dict[k - x] - 1
-    else:
-        ans += count_dict[k - x]
-    if count_dict[x] > 0:
-        count_dict[x] -= 1
+for elem in arr:
+    diff = k - elem
+    if diff in count_dict:
+        ans += count_dict[diff]
+
+    count_dict[elem] += 1
 
 print(ans)
