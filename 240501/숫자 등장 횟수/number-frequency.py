@@ -1,15 +1,11 @@
-from collections import defaultdict
+from collections import Counter
 
 n, m = map(int, input().split())
 
 arr = list(map(int, input().split()))
 search_things = list(map(int, input().split()))
 
-count_dict = defaultdict(int)
-
-for i in range(n):
-    count_dict[arr[i]] += 1
-
+count_dict = Counter(arr)
 
 for search_thing in search_things:
     print(count_dict[search_thing], end=' ')
