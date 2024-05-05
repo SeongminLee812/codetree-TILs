@@ -26,7 +26,6 @@ def rotate(start_x, start_y, m1, m2, dir_num):
     pos_list = extract_element_pos(start_x, start_y, m1, m2)
     elem_list = [arr[x][y] for x, y in pos_list]
     n = len(elem_list)
-    print(elem_list)
 
     if dir_num == 0:
         temp = elem_list[-1]
