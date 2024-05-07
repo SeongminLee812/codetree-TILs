@@ -29,8 +29,6 @@ for i in range(3):
             if r == right[i][j]:
                 right_y = j
 
-print(left_x, left_y)
-print(right_x, right_y)
 elapsed_time = 0
 
 for s in arr:
